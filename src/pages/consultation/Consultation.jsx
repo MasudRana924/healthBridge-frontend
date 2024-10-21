@@ -20,7 +20,6 @@ const Consultation = () => {
     return (
         <div className="">
             <p className="text-start text-xl lg:text-xl 2xl:text-2xl text-gray-900 font-bold mt-4 ">Please select a speaciality</p>
-
             {
                 isLoading ? <div className="w-2/4 lg:w-1/4 mx-auto flex mt-10">
 
@@ -34,13 +33,11 @@ const Consultation = () => {
 
                     />
                     <p className="ml-1 mt-2 text-gray-900">please wait a sec</p>
-                </div> : <div className="grid grid-cols-12 gap-4 lg:gap-12 m-3 md:m-0 lg:m-0  lg:w-full 2xl:w-full mx-auto lg:mt-8">
+                </div> : <div className="grid grid-cols-12 gap-2 m-3 md:m-0 lg:m-0  lg:w-full 2xl:w-full mx-auto lg:mt-8">
                     {content}
                 </div>
             }
-
         </div>
     );
 };
-
 export default Consultation;

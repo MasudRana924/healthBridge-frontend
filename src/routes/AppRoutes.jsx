@@ -4,6 +4,11 @@ import Login from '../pages/auth/Login';
 import Consultation from '../pages/consultation/Consultation';
 import NurseConsultation from '../pages/consultation/NurseConsultation';
 import Register from '../pages/auth/Register';
+import DoctorLogin from '../pages/auth/DoctorLogin';
+import DoctorSignup from '../pages/auth/DoctorSignup';
+import Medicine from '../pages/medicine/Medicine';
+import Cart from '../pages/cart/Cart';
+import Shipping from '../pages/cart/Shipping';
 const AppRoutes = () => {
     return (
         <Routes>
@@ -16,6 +21,11 @@ const AppRoutes = () => {
             </Route>
             <Route path="/user/login" element={<Login />} />
             <Route path="/user/register" element={<Register />} />
+            <Route path="/doctor/login" element={<DoctorLogin />} />
+            <Route path="/doctor/signup" element={<DoctorSignup />} />
+            <Route path="/medicine/store" element={<Medicine />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/shipping" element={<Shipping />} />
         </Routes>
     );
 };

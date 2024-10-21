@@ -17,11 +17,11 @@ const Consultations = ({ title, image }) => {
     };
 
     return (
-        <div className="col-span-12 md:col-span-4 lg:col-span-4 ">
-            <div className="flex w-48 card shadow-xl"  onClick={handleSelect}>
-                <img src={image?.url} alt="" className="h-16 w-16 border rounded-full m-2" />
+        <div className="col-span-12 md:col-span-3 lg:col-span-3 ">
+            <div className="flex items-center w-40 h-20 card shadow-xl hover:bg-gray-200"  onClick={handleSelect}>
+                <img src={image?.url} alt="" className="h-12 w-12 border rounded-full m-2" />
                     <p
-                        className="lg:text-md font-bold text-start bg-base-100 mt-6 hover:bg-gray-200"
+                        className="lg:text-sm font-bold text-start bg-base-100 "
                         style={{color:'#EB569A'}}
                        
                     >

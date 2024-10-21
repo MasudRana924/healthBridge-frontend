@@ -12,6 +12,7 @@ import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { InputAdornment } from '@mui/material';
 import { createSignUp } from '../../features/user/signupSlice';
 import { Rings } from 'react-loader-spinner';
+import Footer from '../../components/common/Footer.jsx';
 const Register = () => {
     const dispatch = useDispatch();
     const { success,isLoading } = useSelector(
@@ -149,6 +150,7 @@ const Register = () => {
                 {/* Same as */}
                 <ToastContainer />
             </div>
+            <Footer/>
         </div>
     );
 };

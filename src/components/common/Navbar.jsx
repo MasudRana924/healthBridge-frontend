@@ -62,38 +62,26 @@ export const Navbar = () => {
                                 px: 0,
                             }}
                         >
-                            <Link to="/">
+                            <Link to="/" style={{ marginRight: '20px' }}>
                                 <Typography variant="h5" className="text-black text-xl">
-                                    Health Bridge 
+                                    Health Bridge
                                 </Typography>
                             </Link>
-                            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                            <Box sx={{ display: { xs: "none", md: "flex"} }}>
                                 <MenuItem
-                                    onClick={() => scrollToSection("features")}
                                     sx={{ py: "6px", px: "12px" }}
                                 >
-                                    {/* Add content if necessary */}
-                                </MenuItem>
-                                <MenuItem
-                                    onClick={() => scrollToSection("testimonials")}
-                                    sx={{ py: "6px", px: "12px" }}
-                                >
-                                    {/* Add content if necessary */}
-                                </MenuItem>
-                                <MenuItem
-                                    onClick={() => scrollToSection("highlights")}
-                                    sx={{ py: "6px", px: "12px" }}
-                                >
-                                    <Typography variant="body2" color="text.primary">
-                                        Medicine
-                                    </Typography>
+                                    <Link to='/medicine/store'>
+                                        <Typography variant="body2" color="text.primary">
+                                            Medicine
+                                        </Typography></Link>
                                 </MenuItem>
                                 <MenuItem
                                     onClick={() => scrollToSection("pricing")}
                                     sx={{ py: "6px", px: "12px" }}
                                 >
                                     <Typography variant="body2" color="text.primary">
-                                        Blood 
+                                        Blood
                                     </Typography>
                                 </MenuItem>
                                 <MenuItem

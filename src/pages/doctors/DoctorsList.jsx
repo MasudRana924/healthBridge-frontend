@@ -38,7 +38,7 @@ const DoctorsList = () => {
     }
 
     return (
-        <div className="lg:flex justify-between 2xl:w-3/4 mx-auto gap-4  mb-20 border mt-8">
+        <div className="lg:flex justify-between 2xl:w-3/4 mx-auto gap-4  mb-20 border mt-16">
             <div className="hidden lg:block lg:w-1/4">
                 <div className=" lg:w-3/4 mx-auto lg:ml-12 2xl:ml-14">
                     <FilterStatus></FilterStatus>
