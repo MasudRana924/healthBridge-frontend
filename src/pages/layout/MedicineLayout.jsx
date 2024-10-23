@@ -1,11 +1,10 @@
 
 import backImage from '../../assets/background.jpg';
 import { styled, Box } from '@mui/material';
-// import { Footer } from '../../components/common/Footer';
 import Footer from '../../components/common/Footer';
 import Navbar from '../../components/common/Navbar';
-import CategoryLayout from './CategoryLayout';
-import DoctorsList from '../doctors/DoctorsList';
+import Medicine from '../medicine/Medicine';
+import SearchLayout from './SearchLayout';
 
 
 const MainWrapper = styled('div')(() => ({
@@ -23,7 +22,7 @@ const PageWrapper = styled('div')(() => ({
     backgroundColor: 'transparent',
 }));
 
-const HomeLayout = () => {
+const MedicineLayout = () => {
     return (
         <MainWrapper>
             <Box
@@ -32,7 +31,7 @@ const HomeLayout = () => {
                     top: 0,
                     left: 0,
                     width: '100%',
-                    height: '65vh',
+                    height: '55vh',
                     backgroundImage: `url(${backImage})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
@@ -49,8 +48,8 @@ const HomeLayout = () => {
                         pb: { xs: 8, sm: 12 },
                     }}
                 >
-                <CategoryLayout/>
-                <DoctorsList/>
+                <SearchLayout/>
+                <Medicine/>
                     
                 </Box>
                 <Footer />
@@ -60,4 +59,4 @@ const HomeLayout = () => {
     );
 };
 
-export default HomeLayout;
+export default MedicineLayout;

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import{ message }from "antd";
 import { useDispatch } from 'react-redux';
 import { addToCart, getTotals } from '../../features/medicine/cartSlice';
-import { ToastContainer, toast } from 'react-toastify';
 const Medicines = ({ medicine }) => {
     const dispatch = useDispatch();
     const handleCart = (product) => {
@@ -13,12 +12,12 @@ const Medicines = ({ medicine }) => {
     }
     return (
         <div className=" col-span-6 sm:col-span-6 md:col-span-4 lg:col-span-4  ">
-            <div className="w-full flex flex-col border rounded-lg">
+            <div className="w-full flex flex-col bg-white border rounded-lg">
                 <div className="relative">
                     <Link >
                         <img
                             src={medicine.image.url}
-                            className="w-full h-48"
+                            className="w-full h-48 p-4"
                             alt={medicine.name}
                         />
                     </Link>

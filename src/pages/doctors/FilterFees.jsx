@@ -19,7 +19,6 @@ const FilterFees = ({title}) => {
     }
     return (
         <div>
-        {/* <p className="w-32 h-8  pt-1  text-start font-semibold text-slate-600 mt-3 lg:ml-64">{title}</p> */}
         <p className={style} onClick={handleSelect}>
         <input type="checkbox" className="mr-3"/>
             {title} BDT

@@ -7,18 +7,10 @@ const CategoryLayout = () => {
                 <NavLink
                     to="find-doctor"
                     className={({ isActive }) =>
-                        'mb-2 font-medium text-xl' + (isActive ? '' : ' text-gray-600')}
+                        'mb-2 font-medium text-md' + (isActive ? '' : ' text-gray-600')}
                     style={({ isActive }) => ({ color: isActive ? '#EB569A' : 'gray' })}
                 >
                     Find Doctor
-                </NavLink>
-                <NavLink
-                    to="find-nurse"
-                    className={({ isActive }) =>
-                        'mb-2 font-medium text-xl' + (isActive ? '' : ' text-gray-600')}
-                    style={({ isActive }) => ({ color: isActive ? '#EB569A' : 'gray' })}
-                >
-                    Find Nurse
                 </NavLink>
             </div>
             <hr />

@@ -77,12 +77,12 @@ export const Navbar = () => {
                                         </Typography></Link>
                                 </MenuItem>
                                 <MenuItem
-                                    onClick={() => scrollToSection("pricing")}
                                     sx={{ py: "6px", px: "12px" }}
                                 >
-                                    <Typography variant="body2" color="text.primary">
-                                        Blood
-                                    </Typography>
+                                    <Link to='/nurses'>
+                                        <Typography variant="body2" color="text.primary">
+                                            Nurse
+                                        </Typography></Link>
                                 </MenuItem>
                                 <MenuItem
                                     onClick={() => scrollToSection("faq")}

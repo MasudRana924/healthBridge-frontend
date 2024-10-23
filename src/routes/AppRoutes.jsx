@@ -6,15 +6,14 @@ import NurseConsultation from '../pages/consultation/NurseConsultation';
 import Register from '../pages/auth/Register';
 import DoctorLogin from '../pages/auth/DoctorLogin';
 import DoctorSignup from '../pages/auth/DoctorSignup';
-import Medicine from '../pages/medicine/Medicine';
 import Cart from '../pages/cart/Cart';
 import Shipping from '../pages/cart/Shipping';
+import MedicineLayout from '../pages/layout/MedicineLayout';
+import NurseLayout from '../pages/layout/NurseLayout';
 const AppRoutes = () => {
     return (
         <Routes>
-            {/* <Route path="/" element={<HomeLayout />} /> */}
             <Route path="/" element={<HomeLayout />}>
-                {/* Add nested routes inside HomeLayout */}
                 <Route index element={<Navigate to="find-doctor" />} />
                 <Route path="find-doctor" element={<Consultation />} />
                 <Route path="find-nurse" element={<NurseConsultation />} />
@@ -23,7 +22,8 @@ const AppRoutes = () => {
             <Route path="/user/register" element={<Register />} />
             <Route path="/doctor/login" element={<DoctorLogin />} />
             <Route path="/doctor/signup" element={<DoctorSignup />} />
-            <Route path="/medicine/store" element={<Medicine />} />
+            <Route path="/medicine/store" element={<MedicineLayout />} />
+            <Route path="/nurses" element={<NurseLayout />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/shipping" element={<Shipping />} />
         </Routes>
