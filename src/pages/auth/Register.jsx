@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navbar } from '../../components/common/Navbar.jsx';
-import { ToastContainer, toast } from 'react-toastify';
+import {message } from 'antd';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
 import TextField from '@mui/material/TextField';
@@ -11,7 +11,6 @@ import EmailIcon from '@mui/icons-material/Email';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { InputAdornment } from '@mui/material';
 import { createSignUp } from '../../features/user/signupSlice';
-import { Rings } from 'react-loader-spinner';
 import Footer from '../../components/common/Footer.jsx';
 const Register = () => {
     const dispatch = useDispatch();
@@ -32,7 +31,6 @@ const Register = () => {
         myForm.set("password", password);
         myForm.set("avatar", avatar);
         dispatch(createSignUp(myForm));
-        toast.success('Account create successfully');
     };
     const registerDataChange = (e) => {
         const reader = new FileReader();
@@ -46,7 +44,8 @@ const Register = () => {
     };
     useEffect(() => {
         if (success) {
-            navigate('/user-signin');
+            navigate('/user/login');
+            message.success("User account successfully created")
         }
     }, [success, navigate]);
     return (
@@ -117,17 +116,9 @@ const Register = () => {
                         <div>
                         {
                                     isLoading ? <button className=" h-12 w-full mb-5 border rounded-lg" style={{backgroundColor:"#EB569A"}}>
-                                        <Rings
-                                            height={40}
-                                            width={60}
-                                            color="red"
-                                            visible={true}
-                                            secondaryColor="red"
-                                            className="border"
-
-                                        />
+                                        Loading 
                                     </button> : <button className=" h-12 w-full mb-5 border rounded-lg" style={{backgroundColor:"#EB569A", border:'1px solid #EB569A'}}>
-                                        <span className="font-semibold text-white text-lg">Login</span>
+                                        <span className="font-semibold text-white text-lg">Register</span>
                                     </button>
                                 }
                             <span className="text-sm tracking-wide text-gray-400 mt-5">Already have a account ?</span> <Link to="/user-signin"><span className="text-sm font-semibold leading-6 text-gray-900">Please Login</span>
@@ -135,20 +126,6 @@ const Register = () => {
                         </div>
                     </form>
                 </div>
-                <ToastContainer
-                    position="top-right"
-                    autoClose={5000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme="dark"
-                />
-                {/* Same as */}
-                <ToastContainer />
             </div>
             <Footer/>
         </div>

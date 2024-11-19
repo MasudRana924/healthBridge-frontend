@@ -110,7 +110,7 @@ const DoctorsList = () => {
     }
 
     return (
-        <div className="lg:flex lg:w-10/12 justify-between mx-auto gap-4 mb-20 lg:mt-4">
+        <div className="lg:flex lg:w-11/12 justify-between mx-auto gap-4 mb-20 lg:mt-4">
             <div className="hidden lg:w-1/4">
                 <div className="lg:w-3/4 mx-auto lg:ml-12 2xl:ml-14">
                     <FilterStatus />
@@ -132,7 +132,7 @@ const DoctorsList = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-full md:w-full lg:w-full lg:ml-16">
+            <div className="w-full md:w-full lg:w-full xl:ml-16">
                 {content}
             </div>
         </div>

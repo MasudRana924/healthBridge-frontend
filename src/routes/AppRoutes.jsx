@@ -10,6 +10,12 @@ import Cart from '../pages/cart/Cart';
 import Shipping from '../pages/cart/Shipping';
 import MedicineLayout from '../pages/layout/MedicineLayout';
 import NurseLayout from '../pages/layout/NurseLayout';
+import SingleDoctor from '../pages/doctors/SingleDoctor';
+import OnsiteAppointmentBooking from '../pages/appointment/OnsiteAppointmentBooking';
+import UserLayout from '../pages/user-layout/UserLayout';
+import UpdateAccount from '../pages/user-layout/UpdateAccount';
+import Prescription from '../pages/user-layout/Prescription';
+import Orders from '../pages/user-layout/Orders';
 const AppRoutes = () => {
     return (
         <Routes>
@@ -20,12 +26,23 @@ const AppRoutes = () => {
             </Route>
             <Route path="/user/login" element={<Login />} />
             <Route path="/user/register" element={<Register />} />
+            {/* userlayout */}
+            <Route path="/user/info" element={<UserLayout />}>
+                <Route index element={<Navigate to="update-account" />} />
+                <Route path="update-account" element={<UpdateAccount />} />
+                <Route path="prescription" element={<Prescription />} />
+                <Route path="orders" element={<Orders />} />
+            </Route>
+
             <Route path="/doctor/login" element={<DoctorLogin />} />
             <Route path="/doctor/signup" element={<DoctorSignup />} />
             <Route path="/medicine/store" element={<MedicineLayout />} />
+            <Route path="/doctor/:doctorId" element={<SingleDoctor />}></Route>
             <Route path="/nurses" element={<NurseLayout />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/shipping" element={<Shipping />} />
+            {/* appointment */}
+            <Route path="/onsite/appointment" element={<OnsiteAppointmentBooking />} />
         </Routes>
     );
 };

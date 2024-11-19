@@ -1,15 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { privatePost } from "../../services/apiCaller";
-
-
-
 const initialState = {
     appointments: [],
     isLoading: false,
     isError: false,
+    success: false,
     error: ''
 }
-
 export const createAppointments = createAsyncThunk(
     'appointment/createAppointment', async ({ data, userToken }, { rejectWithValue }) => {
 
@@ -22,18 +19,17 @@ export const createAppointments = createAsyncThunk(
 
 
     });
-
 const appointmentsSlice = createSlice({
     name: 'appointment',
     initialState,
     extraReducers: (builder) => {
-
         builder.addCase(createAppointments.pending, (state, action) => {
             state.isLoading = true;
             state.isError = true
         });
         builder.addCase(createAppointments.fulfilled, (state, action) => {
             state.isLoading = false;
+            state.success = true;
             state.isError = false;
             state.appointments.push(action.payload);
         });
@@ -43,5 +39,4 @@ const appointmentsSlice = createSlice({
         });
     }
 });
-
 export default appointmentsSlice.reducer; 

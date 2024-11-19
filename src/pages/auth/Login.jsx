@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux';
 import Alert from '@mui/material/Alert';
@@ -8,10 +7,10 @@ import TextField from '@mui/material/TextField';
 import EmailIcon from '@mui/icons-material/Email';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { InputAdornment } from '@mui/material';
-import { Rings } from 'react-loader-spinner';
 import { createLogin } from '../../features/user/Login/loginSlice.js';
 import { Navbar } from '../../components/common/Navbar.jsx';
 import Footer from '../../components/common/Footer.jsx';
+import {message } from 'antd';
 const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -32,7 +31,7 @@ const Login = () => {
     useEffect(() => {
         if (user) {
             navigate('/');
-            toast.info('Login Succesfull');
+            message.success("User logged in successfully ")
         }
     }, [user, navigate,]);
     return (
@@ -90,15 +89,7 @@ const Login = () => {
                             <div>
                                 {
                                     isLoading ? <button className=" h-12 w-full mb-5 border rounded-lg" style={{backgroundColor:"#EB569A"}}>
-                                        <Rings
-                                            height={40}
-                                            width={60}
-                                            color="red"
-                                            visible={true}
-                                            secondaryColor="red"
-                                            className="border"
-
-                                        />
+                                        Logging
                                     </button> : <button className=" h-12 w-full mb-5 border rounded-lg" style={{backgroundColor:"#EB569A", border:'1px solid #EB569A'}}>
                                         <span className="font-semibold text-white text-lg">Login</span>
                                     </button>
@@ -109,22 +100,6 @@ const Login = () => {
                         </form>
                     </div>
                 </div>
-
-                <ToastContainer
-                    position="top-right"
-                    autoClose={500}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme="light"
-
-                />
-                {/* Same as */}
-                <ToastContainer />
             </div>
             <Footer/>
         </div>

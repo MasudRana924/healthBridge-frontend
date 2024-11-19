@@ -11,9 +11,13 @@ import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
+import { useSelector } from "react-redux";
 export const Navbar = () => {
     const [open, setOpen] = useState(false);
-    //   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
+    const { loggeduser } = useSelector(
+        (state) => state.userDetails
+    );
+    const user = loggeduser.user
     const toggleDrawer = (newOpen) => () => {
         setOpen(newOpen);
     };
@@ -67,7 +71,7 @@ export const Navbar = () => {
                                     Health Bridge
                                 </Typography>
                             </Link>
-                            <Box sx={{ display: { xs: "none", md: "flex"} }}>
+                            <Box sx={{ display: { xs: "none", md: "flex" } }}>
                                 <MenuItem
                                     sx={{ py: "6px", px: "12px" }}
                                 >
@@ -101,25 +105,41 @@ export const Navbar = () => {
                                 alignItems: "center",
                             }}
                         >
+                            {user ?
+                                <div>
+                                    {
+                                        user?.role === 'doctor' ? <Link to="/doctor-info">
+                                            {
+                                                user.avatar.url ? <img src={user.avatar.url} alt="" className="h-8 w-8 border rounded-full" /> : <p className="text-sm font-semibold leading-6 text-gray-900">{user.name}</p>
+                                            }
 
-                            <Button
-                                color="secondary"
-                                variant="contained"
-                                size="small"
-                                component={Link}
-                                to="/user/login"
-                            >
-                                Sign in
-                            </Button>
-                            <Button
-                                color="secondary"
-                                variant="contained"
-                                size="small"
-                                component={Link}
-                                to="/user/register"
-                            >
-                                Register
-                            </Button>
+                                        </Link> : <Link to="/user/info">
+                                            {
+                                                user.avatar.url ? <img src={user.avatar.url} alt="" className="h-8 w-8 border rounded-full" /> : <p className="text-sm font-semibold leading-6 text-gray-900">{user.name}</p>
+                                            }
+                                        </Link>
+                                    }
+                                </div> :
+                                <div className="flex gap-4">
+                                    <Button
+                                        color="secondary"
+                                        variant="contained"
+                                        size="small"
+                                        component={Link}
+                                        to="/user/login"
+                                    >
+                                        Sign in
+                                    </Button>
+                                    <Button
+                                        color="secondary"
+                                        variant="contained"
+                                        size="small"
+                                        component={Link}
+                                        to="/user/register"
+                                        
+                                    >
+                                        Register
+                                    </Button></div>}
                         </Box>
                         <Box sx={{ display: { sm: "", md: "none" } }}>
                             <Button
@@ -151,22 +171,16 @@ export const Navbar = () => {
                                         {/* Add additional content if needed */}
                                     </Box>
                                     <MenuItem onClick={() => scrollToSection("features")}>
-                                        For Sale
+                                        Medicine
                                     </MenuItem>
                                     <MenuItem onClick={() => scrollToSection("testimonials")}>
-                                        For Rent
-                                    </MenuItem>
-                                    <MenuItem onClick={() => scrollToSection("highlights")}>
-                                        Highlights
-                                    </MenuItem>
-                                    <MenuItem onClick={() => scrollToSection("pricing")}>
-                                        Pricing
+                                        Nurse
                                     </MenuItem>
                                     <MenuItem onClick={() => scrollToSection("faq")}>
                                         FAQ
                                     </MenuItem>
                                     <Divider />
-                                    {/* {!isAuthenticated && (
+                                    {!user && (
                                         <>
                                             <MenuItem>
                                                 <Button
@@ -193,7 +207,7 @@ export const Navbar = () => {
                                                 </Button>
                                             </MenuItem>
                                         </>
-                                    )} */}
+                                    )}
                                 </Box>
                             </Drawer>
                         </Box>
