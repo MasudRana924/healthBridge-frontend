@@ -1,12 +1,18 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import Navbar from '../../components/common/Navbar';
 import Footer from '../../components/common/Footer';
+import { logout } from '../../features/user/Login/loginSlice';
+import { useDispatch } from 'react-redux';
 
 const UserLayout = () => {
+    const dispatch = useDispatch();
     const sidebarItems = [
-        { name: "Update Account", path: "update-account" },
-        { name: "Prescription", path: "prescription" },
-        { name: "Orders", path: "orders" },
+        { name: "Account Information", path: "update-account" },
+        { name: "Change Password", path: "change-password" },
+        { name: "Consultations History", path: "consultations-history" },
+        { name: "Prescription History", path: "prescription-history" },
+        { name: "Hired Nurses History", path: "nurses-history" },
+        { name: "Orders History", path: "orders-history" },
     ];
 
     return (
@@ -37,6 +43,7 @@ const UserLayout = () => {
                             </li>
                         ))}
                     </ul>
+                    <button  onClick={() => dispatch(logout())} className='mt-4 w-full bg-red-500 h-10 border rounded-lg text-white'>Logout</button>
                 </div>
 
                 {/* Right Content Area */}
