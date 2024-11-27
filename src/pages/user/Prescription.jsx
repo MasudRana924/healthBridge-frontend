@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchPrescription } from "../../../state/user/prescription/prescriptionSlice";
+import { fetchPrescription } from "../../features/user/prescription/prescriptionSlice";
 import { useReactToPrint } from "react-to-print";
 import { Alert, Button, Modal, Card } from "antd";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
@@ -19,14 +19,10 @@ const Prescription = () => {
 
   const componentRef = useRef();
 
-  const handlePrint = () => {
-    if (componentRef.current) {
-      const print = useReactToPrint({
-        content: () => componentRef.current,
-      });
-      print();
-    }
-  };
+  // Define useReactToPrint at the top level of the functional component
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
 
   const showModal = (booking) => {
     setSelectedBooking(booking);
@@ -67,11 +63,16 @@ const Prescription = () => {
   } else if (!isError && prescription?.length > 0) {
     content = prescription.map((booking) => (
       <Card
-        key={booking._id}
+        key={booking._id} // Add key prop here
         className="mb-4"
         title={`${booking.doctortitle} ${booking.doctorname}`}
         actions={[
-          <button type="link" onClick={() => showModal(booking)}>
+          // Add a key to this button element
+          <button
+            key={`view-download-${booking._id}`} // Unique key for each button
+            type="button"
+            onClick={() => showModal(booking)}
+          >
             View & Download
           </button>,
         ]}
@@ -83,8 +84,8 @@ const Prescription = () => {
   }
 
   return (
-    <div className="p-10 bg-white mt-16">
-      <div className="w-full lg:w-3/4 mx-auto">
+    <div className="">
+      <div className="w-full lg:w-3/4 ">
         <h2 className="text-2xl mb-5">Previous Prescription History</h2>
         <div className="grid grid-cols-1 gap-4">{content}</div>
       </div>

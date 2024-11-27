@@ -110,12 +110,12 @@ export const Navbar = () => {
                                     {
                                         user?.role === 'doctor' ? <Link to="/doctor-info">
                                             {
-                                                user.avatar.url ? <img src={user.avatar.url} alt="" className="h-8 w-8 border rounded-full" /> : <p className="text-sm font-semibold leading-6 text-gray-900">{user.name}</p>
+                                                user?.avatar?.url ? <img src={user?.avatar?.url} alt="" className="h-8 w-8 border rounded-full" /> : <p className="text-sm font-semibold leading-6 text-gray-900">{user.name}</p>
                                             }
 
                                         </Link> : <Link to="/user/info">
                                             {
-                                                user.avatar.url ? <img src={user.avatar.url} alt="" className="h-8 w-8 border rounded-full" /> : <p className="text-sm font-semibold leading-6 text-gray-900">{user.name}</p>
+                                                user?.avatar?.url ? <img src={user?.avatar?.url} alt="" className="h-8 w-8 border rounded-full" /> : <p className="text-sm font-semibold leading-6 text-gray-900">{user.name}</p>
                                             }
                                         </Link>
                                     }
@@ -136,7 +136,7 @@ export const Navbar = () => {
                                         size="small"
                                         component={Link}
                                         to="/user/register"
-                                        
+
                                     >
                                         Register
                                     </Button></div>}
@@ -171,43 +171,88 @@ export const Navbar = () => {
                                         {/* Add additional content if needed */}
                                     </Box>
                                     <MenuItem onClick={() => scrollToSection("features")}>
-                                        Medicine
+                                        <Link to='/medicine/store'>
+                                            <Typography variant="body2" color="text.primary">
+                                                Medicine
+                                            </Typography></Link>
                                     </MenuItem>
                                     <MenuItem onClick={() => scrollToSection("testimonials")}>
-                                        Nurse
+                                        <Link to='/nurses'>
+                                            <Typography variant="body2" color="text.primary">
+                                                Nurse
+                                            </Typography></Link>
                                     </MenuItem>
                                     <MenuItem onClick={() => scrollToSection("faq")}>
-                                        FAQ
+                                        <Link to='/faq'>
+                                            <Typography variant="body2" color="text.primary">
+                                                FAQ
+                                            </Typography></Link>
                                     </MenuItem>
                                     <Divider />
-                                    {!user && (
-                                        <>
-                                            <MenuItem>
-                                                <Button
-                                                    color="primary"
-                                                    variant="contained"
-                                                    component={Link}
-                                                    to="/material-ui/getting-started/templates/sign-up/"
-                                                    target="_blank"
-                                                    sx={{ width: "100%" }}
-                                                >
-                                                    Sign up
-                                                </Button>
-                                            </MenuItem>
-                                            <MenuItem>
-                                                <Button
-                                                    color="primary"
-                                                    variant="outlined"
-                                                    component={Link}
-                                                    to="/material-ui/getting-started/templates/sign-in/"
-                                                    target="_blank"
-                                                    sx={{ width: "100%" }}
-                                                >
-                                                    Sign in
-                                                </Button>
-                                            </MenuItem>
-                                        </>
-                                    )}
+                                    {user ? (
+            <>
+                <MenuItem>
+                    <Link to="/user/info">
+                        <Typography variant="body2" color="text.primary">
+                            User Details
+                        </Typography>
+                    </Link>
+                </MenuItem>
+                <MenuItem>
+                    <Link to="/user/password-change">
+                        <Typography variant="body2" color="text.primary">
+                            Password Change
+                        </Typography>
+                    </Link>
+                </MenuItem>
+                <MenuItem>
+                    <Link to="/user/orders-history">
+                        <Typography variant="body2" color="text.primary">
+                            Orders History
+                        </Typography>
+                    </Link>
+                </MenuItem>
+                <MenuItem>
+                    <Link to="/user/prescription-history">
+                        <Typography variant="body2" color="text.primary">
+                            Prescription History
+                        </Typography>
+                    </Link>
+                </MenuItem>
+                <MenuItem>
+                    <Link to="/user/nurses-book-history">
+                        <Typography variant="body2" color="text.primary">
+                            Nurses Book History
+                        </Typography>
+                    </Link>
+                </MenuItem>
+            </>
+        ) : (
+            <>
+                <MenuItem>
+                    <Button
+                        color="primary"
+                        variant="contained"
+                        component={Link}
+                        to="/user/register"
+                        sx={{ width: "100%" }}
+                    >
+                        Sign up
+                    </Button>
+                </MenuItem>
+                <MenuItem>
+                    <Button
+                        color="primary"
+                        variant="outlined"
+                        component={Link}
+                        to="/user/login"
+                        sx={{ width: "100%" }}
+                    >
+                        Sign in
+                    </Button>
+                </MenuItem>
+            </>
+        )}
                                 </Box>
                             </Drawer>
                         </Box>

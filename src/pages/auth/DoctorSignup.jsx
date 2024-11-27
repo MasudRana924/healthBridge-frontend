@@ -4,16 +4,17 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import { createDoctorSignUp } from '../../features/doctors/doctorsignupSlice';
 import Navbar from '../../components/common/Navbar';
 import Footer from '../../components/common/Footer';
-
+import { message } from 'antd';
+import { FaCamera } from 'react-icons/fa';
+import './Auth.css'
 const DoctorSignup = () => {
     const dispatch = useDispatch();
-    const { success } = useSelector(
-        (state) => state.signup
+    const { success,isLoading } = useSelector(
+        (state) => state.doctorsignup
     );
     const navigate = useNavigate()
     const [avatar, setAvatar] = useState("/Doctor.png");
@@ -37,32 +38,12 @@ const DoctorSignup = () => {
         e.preventDefault();
         if (title && gender && fees && nid_No && bmdc_No && type && phone && name && email && password && degree && expert && work && experience && avatar) {
             dispatch(createDoctorSignUp(data));
-            toast.success('Account create successfully', {
-                position: "top-center",
-                autoClose: 500,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
-        } else {
-            toast.error('Enter all Fields', {
-                position: "top-center",
-                autoClose: 500,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
         }
     }
     useEffect(() => {
         if (success) {
             navigate('/doctor/login');
+            message.success("Account create successfully ")
         }
     }, [success, navigate]);
     const registerDataChange = (e) => {
@@ -128,51 +109,80 @@ const DoctorSignup = () => {
 
     return (
         <div>
-             <Navbar/>
+            <Navbar />
             <div className=" mt-28 lg:mt-40 lg:flex justify-between lg:gap-4 mb-10">
 
                 <div className="w-full">
 
                     <div className="mt-16 hidden lg:block ">
-                        <p className="text-4xl text-start  font-bold w-3/4 ml-10" style={{color:'#EB569A'}}>Are You A Qualified Doctor?</p>
+                        <p className="text-4xl text-start  font-bold w-3/4 ml-10" style={{ color: '#EB569A' }}>Are You A Qualified Doctor?</p>
                         <p className=" text-gray-900 lg:text-3xl text-start lg:w-3/4 ml-10 font-bold mt-12">Join the forefront of digital healthcare</p>
                         <p className="text-gray-900 text-xl text-start ml-10 lg:w-3/4  mt-5">Join HealthBridge network and create your virtual chamber provide medical consultancy via video call and expand the reach of your service.</p>
                     </div>
                     <div className="mt-16 hidden lg:block ">
-                        <p className="text-4xl text-start  font-bold w-3/4  ml-10" style={{color:'#EB569A'}}>Benefits Of Joining</p>
+                        <p className="text-4xl text-start  font-bold w-3/4  ml-10" style={{ color: '#EB569A' }}>Benefits Of Joining</p>
                         <p className="text-gray-900 text-xl text-start  lg:w-3/4 ml-10 mt-10">Doctors can join the platform using our simple on boarding process. We verify every doctor to make sure only BMDC authorised doctors are providing consultation using our latest technology.</p>
                         <p className="text-gray-900 text-xl text-start  lg:w-3/4 ml-10 mt-10">You will be at the forefront of digital healthcare innovations providing accessible patient care for all.</p>
                         <p className="text-gray-900 text-xl text-start  lg:w-3/4 ml-10 mt-10">You will be working independently, making autonomous medical decisions, and supported by our HealthBridge technical team who are here to assist both patient and yourself when you’re on session or outside sessions.</p>
                     </div>
 
                     <div className="mt-16 hidden lg:hidden">
-                        <p className=" text-2xl lg:text-4xl text-start  font-bold lg:w-3/4 ml-10 lg:ml-0" style={{color:'#EB569A'}}>Are You A Qualified Doctor?</p>
+                        <p className=" text-2xl lg:text-4xl text-start  font-bold lg:w-3/4 ml-10 lg:ml-0" style={{ color: '#EB569A' }}>Are You A Qualified Doctor?</p>
                         <p className="text-xl text-gray-900 lg:text-3xl text-center mt-12 font-bold lg:ml-3">Join the forefront of digital healthcare</p>
                         <p className="text-gray-900 text-xl text-start lg:ml-0 lg:w-3/4 ml-10 mt-10">Join HealthBridge network and create your virtual chamber provide medical consultancy via video call and expand the reach of your service.</p>
                     </div>
                     <div className=" block lg:hidden ">
-                        <p className="text-xl text-start  font-bold w-3/4 ml-10 " style={{color:'#EB569A'}}>Are You A Qualified Doctor?</p>
+                        <p className="text-xl text-start  font-bold w-3/4 ml-10 " style={{ color: '#EB569A' }}>Are You A Qualified Doctor?</p>
                         <p className=" text-gray-900 text-start w-3/4 ml-10 mt-3 font-bold ">Join the forefront of digital healthcare</p>
                         <p className="text-gray-900 text-start text-xl w-3/4 ml-10 mt-5 mb-12">Join HealthBridge network and create your virtual chamber provide medical consultancy via video call and expand the reach of your service.</p>
                     </div>
                 </div>
                 <div className="w-3/4 mx-auto lg:w-full lg:mt-16 mt-10 ">
-                    <p className="text-2xl lg:text-4xl lg:text-center font-bold  lg:w-3/4  " style={{color:'#EB569A'}}>Doctors Registration</p>
-                    <form action="" className="" onSubmit={registerSubmit}>
-                        <div className=" mt-12">
-                            <div className="w-1/4 mx-auto ">
-                                <img src={avatarPreview} alt="Avatar Preview" className="h-16 w-16 mb-5 border rounded-full" />
-                            </div>
-                            <div className="w-full">
+                    <p className="text-2xl lg:text-4xl lg:text-center font-bold  lg:w-3/4  " style={{ color: '#EB569A' }}>Doctors Registration</p>
+                    <form action="" className=" mt-8" onSubmit={registerSubmit}>
+                        <div className="avatar-container">
+                            <img
+                                src={avatarPreview}
+                                alt="Avatar Preview"
+                                className="avatar-preview"
+                            />
+                            <label htmlFor="avatar-upload" className="avatar-upload-icon">
+                                <FaCamera className="camera-icon" />
                                 <input
                                     type="file"
+                                    id="avatar-upload"
                                     name="avatar"
                                     accept="image/*"
                                     onChange={registerDataChange}
-                                    className="lg:mr-20"
+                                    className="hidden"
                                 />
-                            </div>
+                            </label>
                         </div>
+                        {/* <div className="mt-12 lg:w-3/4 mx-auto lg:flex lg:justify-center gap-6">
+                            <TextField
+                                id="title"
+                                select
+                                label="Title"
+                                variant="standard"
+                                className="bg-white w-full mb-12"
+                                onChange={(e) => setTitle(e.target.value)}
+                                SelectProps={{ native: true }}
+                            >
+                                {titles.map((option) => (
+                                    <option key={option.value} value={option.value}>
+                                        {option.label}
+                                    </option>
+                                ))}
+                            </TextField>
+                            <TextField
+                                id="name"
+                                label="Name"
+                                variant="standard"
+                                className="w-full"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                        </div> */}
                         <div className="mt-12 lg:w-3/4 mx-auto  lg:flex lg:justify-center lg:ml-0 lg:mr-0 gap-6">
                             {/* <TextField id="standard-basic" label="Title" variant="standard" className="w-full lg:w-2/4 mx-auto mt-12" value={title} onChange={(e) => setTitle(e.target.value)} /> */}
                             <TextField
@@ -277,7 +287,12 @@ const DoctorSignup = () => {
                         </div>
 
                         <div className="lg:w-3/4">
-                            <Button  color="secondary"
+                        {
+                            isLoading ? <Button color="secondary"
+                            variant="contained" className="w-full lg:w-full xl:w-2/4 mt-10 " onClick={registerSubmit}>Please wait ...</Button>:<Button color="secondary"
+                            variant="contained" className="w-full lg:w-full xl:w-2/4 mt-10 " onClick={registerSubmit}>Register</Button>
+                        }
+                            <Button color="secondary"
                                 variant="contained" className="w-full lg:w-full xl:w-2/4 mt-10 " onClick={registerSubmit}>Register</Button>
                         </div>
                         <div className="lg:w-3/4 mt-5">
@@ -285,23 +300,9 @@ const DoctorSignup = () => {
                         </div>
                     </form>
                 </div>
-                <ToastContainer
-                    position="top-center"
-                    autoClose={500}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme="dark"
-                />
-                {/* Same as */}
-                <ToastContainer />
 
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 };

@@ -16,6 +16,7 @@ const OnsiteAppointmentBooking = () => {
     const { doctor } = useSelector(state => state.doctor.doctor);
     const userToken = loggeduser.token
     const [patientname, setPname] = useState('');
+    const [patientemail, setEmail] = useState('');
     const [patientgender, setGender] = useState('');
     const [phone, setPhone] = useState('');
     const [date, setDate] = useState('');
@@ -29,7 +30,7 @@ const OnsiteAppointmentBooking = () => {
     const doctordegree = doctor.degree;
     const doctorwork = doctor.work;
     const url = doctor.url
-    const data = ({ doctortitle, doctorname, doctoremail, doctorfees, doctorimage, doctorId, doctordegree, doctorwork, patientname, patientgender, phone, date, schedule, url });
+    const data = ({ doctortitle, doctorname, doctoremail, doctorfees, doctorimage, doctorId, doctordegree, doctorwork, patientname, patientgender, phone, date, schedule, url ,patientemail});
     const handleCreate = (e) => {
         e.preventDefault();
         if (patientname && phone && date && schedule) {
@@ -38,7 +39,7 @@ const OnsiteAppointmentBooking = () => {
             }));
         }
     }
-    const { success } = useSelector(state => state.appointments.appointments);
+    const { success } = useSelector(state => state.appointments);
     useEffect(() => {
         if (success) {
             message.success("Onsite Appointment Booked Successfully")
@@ -139,6 +140,9 @@ const OnsiteAppointmentBooking = () => {
                                     </div>
                                     <div>
                                         <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="Enter Patient Phone " className="border border-gray-200 rounded w-full  p-2 h-12 mx-auto mt-5" />
+                                    </div>
+                                    <div className="mt-4 ">
+                                        <input type="text" value={patientemail} onChange={(e) => setEmail(e.target.value)} placeholder="Enter Email" className="border border-gray-300 rounded mx-auto w-full p-2 h-12" />
                                     </div>
                                     <div>
                                         <select name="Gender" className="w-full  h-12 border rounded mt-5" value={patientgender} onChange={(e) => setGender(e.target.value)}>

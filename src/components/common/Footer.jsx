@@ -139,7 +139,7 @@ const Footer = () => {
                             variant="body2"
                             sx={{ fontSize: "14px", lineHeight: "1.8" }}
                         >
-                            CareerCove, Dhaka
+                            HealthBridge, Dhaka
                         </Typography>
                     </Grid>
 
@@ -155,7 +155,7 @@ const Footer = () => {
                             variant="body2"
                             sx={{ fontSize: "14px", lineHeight: "1.8" }}
                         >
-                            info@CareerCove.com
+                            info@healthbridge.com
                             <br />
                             +88 09678 232425
                         </Typography>
@@ -237,7 +237,7 @@ const Footer = () => {
                         variant="body2"
                         sx={{ fontSize: "14px", lineHeight: "1.5" }}
                     >
-                        © Copyright CareerCove
+                        © Copyright HealthBridge
                     </Typography>
                 </Box>
             </Container>

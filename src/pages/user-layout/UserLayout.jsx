@@ -21,9 +21,9 @@ const UserLayout = () => {
             <Navbar />
 
             {/* Main Content */}
-            <div className="flex-grow lg:w-10/12 mx-auto flex justify-center lg:mt-44 mb-12">
+            <div className="w-full md:w-11/12 md:flex-grow lg:w-10/12 mx-auto md:flex justify-center md:mt-44 mb-12 ">
                 {/* Left Sidebar */}
-                <div className="w-1/4 bg-gray-50 p-4">
+                <div className=" hidden md:block w-1/4 bg-gray-50 p-4 ">
                     <h2 className="text-lg font-semibold mb-4">User Account Settings</h2>
                     <ul className="space-y-2">
                         {sidebarItems.map((item, index) => (
@@ -47,7 +47,7 @@ const UserLayout = () => {
                 </div>
 
                 {/* Right Content Area */}
-                <div className="w-3/4 bg-white p-6">
+                <div className="w-full md:w-3/4 lg:w-3/4 bg-white p-6 mt-16 md:mt-0 lg:mt-0">
                     <Outlet />
                 </div>
             </div>

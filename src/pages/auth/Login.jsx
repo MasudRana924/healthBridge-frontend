@@ -88,8 +88,8 @@ const Login = () => {
                             </div>
                             <div>
                                 {
-                                    isLoading ? <button className=" h-12 w-full mb-5 border rounded-lg" style={{backgroundColor:"#EB569A"}}>
-                                        Logging
+                                    isLoading ? <button className=" h-12 w-full mb-5 border rounded-lg text-white " style={{backgroundColor:"#EB569A"}}>
+                                        Please wait ...
                                     </button> : <button className=" h-12 w-full mb-5 border rounded-lg" style={{backgroundColor:"#EB569A", border:'1px solid #EB569A'}}>
                                         <span className="font-semibold text-white text-lg">Login</span>
                                     </button>

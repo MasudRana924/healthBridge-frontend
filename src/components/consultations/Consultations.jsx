@@ -17,18 +17,24 @@ const Consultations = ({ title, image }) => {
     };
 
     return (
-        <div className="col-span-6 md:col-span-3 lg:col-span-3 ">
-            <div className="flex items-center md:w-40 md:h-20 card shadow-xl hover:bg-gray-200"  onClick={handleSelect}>
-                <img src={image?.url} alt="" className="h-12 w-12 border rounded-full m-2" />
-                    <p
-                        className="text-xs md:text-sm lg:text-sm font-bold text-start bg-base-100 "
-                        style={{color:'#EB569A'}}
-                       
-                    >
-                        {title}
-                    </p>
-            </div>
-        </div>
+        <div className="col-span-6 md:col-span-3 lg:col-span-3">
+    <button
+        className="flex items-center md:w-40 md:h-20 card shadow-xl hover:bg-gray-200 p-2"
+        onClick={handleSelect}
+    >
+        <img
+            src={image?.url}
+            alt=""
+            className="h-12 w-12 border rounded-full m-2"
+        />
+        <p
+            className="text-xs md:text-sm lg:text-sm font-bold text-start bg-base-100"
+            style={{ color: '#EB569A' }}
+        >
+            {title}
+        </p>
+    </button>
+</div>
     );
 };
 

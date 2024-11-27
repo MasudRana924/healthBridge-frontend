@@ -1,8 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import FilterFeeses from './FilterFeeses';
-import Ratings from './Ratings';
-import FilterStatus from './FilterStatus';
 import { Alert } from '@mui/material';
 import { fetchFilterDoctors } from '../../features/filter/filterSlice';
 import DoctorsLists from './DoctorsLists';
@@ -110,28 +107,7 @@ const DoctorsList = () => {
     }
 
     return (
-        <div className="lg:flex lg:w-11/12 justify-between mx-auto gap-4 mb-20 lg:mt-4">
-            <div className="hidden lg:w-1/4">
-                <div className="lg:w-3/4 mx-auto lg:ml-12 2xl:ml-14">
-                    <FilterStatus />
-                </div>
-                <div className="w-3/4 mx-auto">
-                    <div className="w-full lg:w-3/4 lg:mx-auto mt-5">
-                        <h2 className="font-semibold text-xl mt-1 text-start">Fees</h2>
-                    </div>
-                    <div className="hidden lg:block lg:w-3/4 lg:mx-auto">
-                        <FilterFeeses />
-                    </div>
-                </div>
-                <div className="w-3/4 mx-auto">
-                    <div className="w-full lg:w-3/4 lg:mx-auto mt-5">
-                        <h2 className="font-semibold text-xl mt-1 text-start">Ratings</h2>
-                    </div>
-                    <div className="hidden lg:block lg:w-3/4 lg:mx-auto">
-                        <Ratings />
-                    </div>
-                </div>
-            </div>
+        <div className="lg:flex lg:w-10/12 xl:w-10/12 2xl:w-8/12 justify-between mx-auto  mb-20 lg:mt-4">
             <div className="w-full md:w-full lg:w-full xl:ml-16">
                 {content}
             </div>

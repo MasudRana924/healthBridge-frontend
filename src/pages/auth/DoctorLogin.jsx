@@ -3,13 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux';
-
 import Alert from '@mui/material/Alert';
 import TextField from '@mui/material/TextField';
 import EmailIcon from '@mui/icons-material/Email';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { InputAdornment } from '@mui/material';
-import { Rings } from 'react-loader-spinner';
 import { createDoctorLogin } from '../../features/user/Login/loginSlice';
 import Navbar from '../../components/common/Navbar';
 import Footer from '../../components/common/Footer';
@@ -82,17 +80,9 @@ const DoctorLogin = () => {
                             <div>
                                 
                                   {
-                                    isLoading ? <button className=" h-12 w-full mb-5 border rounded-lg" style={{backgroundColor:"#EB569A", border:'1px solid #EB569A'}}>
-                                        <Rings
-                                            height={40}
-                                            width={60}
-                                            color="red"
-                                            visible={true}
-                                            secondaryColor="red"
-                                            className="border"
-
-                                        />
-                                    </button> : <button className=" h-12 w-full mb-5 border rounded-lg" style={{backgroundColor:"#EB569A", border:'1px solid #EB569A'}}>
+                                    isLoading ?  <button className=" h-12 w-full mb-5 border rounded-lg" style={{backgroundColor:"#EB569A", border:'1px solid #EB569A'}}>
+                                    <span className="font-semibold text-white text-lg">Pleas wait ...</span>
+                                </button> : <button className=" h-12 w-full mb-5 border rounded-lg" style={{backgroundColor:"#EB569A", border:'1px solid #EB569A'}}>
                                         <span className="font-semibold text-white text-lg">Login</span>
                                     </button>
                                 }
