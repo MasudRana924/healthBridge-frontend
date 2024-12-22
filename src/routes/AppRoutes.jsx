@@ -33,17 +33,6 @@ const AppRoutes = () => {
             </Route>
             <Route path="/user/login" element={<Login />} />
             <Route path="/user/register" element={<Register />} />
-            {/* userlayout */}
-            {/* <Route path="/user/info" element={<UserLayout />}>
-                <Route index element={<Navigate to="update-account" />} />
-                <Route path="update-account" element={<UserDetails />} />
-                <Route path="change-password" element={<UserChangepassword />} />
-                <Route path="consultations-history" element={<MyConsultantHistory />} />
-                <Route path="prescription-history" element={<Prescription />} />
-                <Route path="nurses-history" element={<NursesHistory />} />
-                <Route path="orders-history" element={<OrderHistory />} />
-                <Route path="orders" element={<Orders />} />
-            </Route> */}
             <Route path="/user/info" element={<PrivateRoute><UserLayout /></PrivateRoute>}>
                 <Route index element={<Navigate to="update-account" />} />
                 <Route path="update-account" element={<PrivateRoute><UserDetails /></PrivateRoute>} />
@@ -54,8 +43,6 @@ const AppRoutes = () => {
                 <Route path="orders-history" element={<PrivateRoute><OrderHistory /></PrivateRoute>} />
                 <Route path="orders" element={<PrivateRoute><Orders /></PrivateRoute>} />
             </Route>
-
-
             <Route path="/doctor/login" element={<DoctorLogin />} />
             <Route path="/doctor/signup" element={<DoctorSignup />} />
             <Route path="/medicine/store" element={<MedicineLayout />} />
@@ -65,7 +52,6 @@ const AppRoutes = () => {
             <Route path="/shipping" element={<PrivateRoute><Shipping></Shipping></PrivateRoute>} />
             {/* appointment */}
             <Route path="/onsite/appointment" element={<PrivateRoute><OnsiteAppointmentBooking /></PrivateRoute>} />
-
             {/* payment-routes */}
             <Route path="/payment/successfull/:tranId" element={<Payment></Payment>}></Route>
             <Route path="/order/payment/successfull/:tranId" element={<OrderPayment></OrderPayment>}></Route>

@@ -65,7 +65,7 @@ const DoctorsLists = ({ doctor }) => {
 
                     <div className="flex justify-between mt-4">
                         <div>
-                            <p className="text-slate-400 text-md">
+                            <p className="text-slate-400 text-sm">
                                 Experience
                             </p>
                             <p className="text-md text-black">
@@ -73,7 +73,7 @@ const DoctorsLists = ({ doctor }) => {
                             </p>
                         </div>
                         <div>
-                            <p className="text-slate-400 text-md">
+                            <p className="text-slate-400 text-sm">
                                 Total Ratings
                             </p>
                             <p className="text-md">

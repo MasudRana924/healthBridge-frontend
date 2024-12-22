@@ -292,8 +292,7 @@ const DoctorSignup = () => {
                             variant="contained" className="w-full lg:w-full xl:w-2/4 mt-10 " onClick={registerSubmit}>Please wait ...</Button>:<Button color="secondary"
                             variant="contained" className="w-full lg:w-full xl:w-2/4 mt-10 " onClick={registerSubmit}>Register</Button>
                         }
-                            <Button color="secondary"
-                                variant="contained" className="w-full lg:w-full xl:w-2/4 mt-10 " onClick={registerSubmit}>Register</Button>
+            
                         </div>
                         <div className="lg:w-3/4 mt-5">
                             <span className="text-sm tracking-wide text-gray-400 mt-8">Already have a account ?</span> <Link to="/doctor/login"><span className="text-sm font-semibold leading-6 text-gray-900">Please Login</span></Link>

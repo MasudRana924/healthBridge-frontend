@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { BsBag, BsSearch } from "react-icons/bs";
+import { BsBag, BsSearch, BsClock } from "react-icons/bs";
 import { fetchFilterMedicne } from '../../features/medicine/FilterMedicineSlice';
 import { addsearchToStore } from '../../features/medicine/searchSlice';
 import { searched } from '../../features/filter/filterReducer';
@@ -25,36 +25,58 @@ const SearchLayout = () => {
 
     return (
         <div className='w-11/12 md:w-3/4 lg:w-3/4 xl:w-7/12 2xl:w-6/12 mx-auto border border-white shadow-md bg-white rounded-md lg:h-84 p-6'>
-            <p>Search Medicine</p>
-            <hr/>
-            <div className="flex justify-between pl-2 lg:pl-0 pr-5 mt-3 w-full lg:w-full 2xl:w-2/4 mx-auto">
-                    <form className="w-3/4 lg:w-3/4 2xl:w-2/4 flex">
-                        <input
-                            className="outline-none border border-pink-200 w-full h-10 pl-5"
-                            type="search"
-                            name="search"
-                            value={input}
-                            onChange={(e) => setInput(e.target.value)}
-                            placeholder="Search"
-                        />
-                        <button onClick={handleSearch} className="h-10 w-20" style={{ backgroundColor: "#EB569A", border: '1px solid #EB569A' }}>
-                            <BsSearch className="text-white font-bold ml-5" />
-                        </button>
-                    </form>
-                    <div>
-                        <Link to="/cart" className="text-sm leading-6 me-10">
-                            <div className="flex mt-3 lg:mt-1">
-                                <BsBag className="h-4 w-4 lg:h-6 lg:w-6" style={{ color: "#EB569A" }} />
-                                <span className="ml-1 text-sm" style={{ color: "#EB569A" }}>{cartTotalQuantity}</span>
-                            </div>
-                        </Link>
-                    </div>
+            <div className="bg-white rounded-lg shadow-lg p-6 space-y-6">
+                <h2 className="text-xl font-medium text-gray-900">Search Medicine</h2>
+                <div className=" flex items-center justify-between gap-4">
+                        <div className="relative w-full">
+                            <input
+                                className="w-full h-12 pl-4 pr-16 rounded-lg border border-gray-200 outline-none text-gray-700 placeholder-gray-400"
+                                type="search"
+                                name="search"
+                                value={input}
+                                onChange={(e) => setInput(e.target.value)}
+                                placeholder="Search for medicines..."
+                            />
+                            <button
+                                type="button"
+                                onClick={handleSearch}
+                                className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-lg bg-red-50 hover:bg-red-100 transition-colors duration-200"
+                            >
+                                <BsSearch className="text-red-500 w-5 h-5" />
+                            </button>
+                        </div>
+                    <Link
+                        to="/cart"
+                        className="flex items-center justify-center w-12 h-12 rounded-lg bg-red-50 hover:bg-red-100 transition-colors duration-200"
+                    >
+                        <div className="relative">
+                            <BsBag className="w-6 h-6 text-red-500" />
+                            {cartTotalQuantity > 0 && (
+                                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                                    {cartTotalQuantity}
+                                </span>
+                            )}
+                        </div>
+                    </Link>
                 </div>
 
-                <div className="">
-                    <p className="text-start">Search History</p>
-                    <p className="text-start text-gray-400 min-w-fit">{searchList}</p>
+                <div className="space-y-3">
+                    <h3 className="text-sm font-medium text-gray-700">Search History</h3>
+                    {searchList && searchList.length > 0 ? (
+                        <div className="flex flex-wrap gap-2">
+                            <div
+                                className="flex items-center gap-2 px-3 py-1.5 bg-gray-50 rounded-full text-sm text-gray-600"
+                            >
+                                <BsClock className="w-3 h-3 text-red-400" />
+                                {searchList}
+                            </div>
+
+                        </div>
+                    ) : (
+                        <p className="text-sm text-gray-400">No recent searches</p>
+                    )}
                 </div>
+            </div>
         </div>
     );
 };

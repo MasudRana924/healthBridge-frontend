@@ -11,8 +11,11 @@ import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { FiUser } from 'react-icons/fi';
+import { logout } from "../../features/user/Login/loginSlice";
 export const Navbar = () => {
+    const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
     const { loggeduser } = useSelector(
         (state) => state.userDetails
@@ -68,10 +71,26 @@ export const Navbar = () => {
                         >
                             <Link to="/" style={{ marginRight: '20px' }}>
                                 <Typography variant="h5" className="text-black text-xl">
-                                    Health Bridge
+                                    MedEase
                                 </Typography>
                             </Link>
                             <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                                <MenuItem
+                                    sx={{ py: "6px", px: "12px" }}
+                                >
+                                    <Link to='/nurses'>
+                                        <Typography variant="body2" color="text.primary">
+                                            About Us
+                                        </Typography></Link>
+                                </MenuItem>
+                                <MenuItem
+                                    sx={{ py: "6px", px: "12px" }}
+                                >
+                                    <Link to='/nurses'>
+                                        <Typography variant="body2" color="text.primary">
+                                            Contact Us
+                                        </Typography></Link>
+                                </MenuItem>
                                 <MenuItem
                                     sx={{ py: "6px", px: "12px" }}
                                 >
@@ -89,12 +108,20 @@ export const Navbar = () => {
                                         </Typography></Link>
                                 </MenuItem>
                                 <MenuItem
-                                    onClick={() => scrollToSection("faq")}
                                     sx={{ py: "6px", px: "12px" }}
                                 >
-                                    <Typography variant="body2" color="text.primary">
-                                        FAQ
-                                    </Typography>
+                                    <Link to='/nurses'>
+                                        <Typography variant="body2" color="text.primary">
+                                            Ambulance
+                                        </Typography></Link>
+                                </MenuItem>
+                                <MenuItem
+                                    sx={{ py: "6px", px: "12px" }}
+                                >
+                                    <Link to='/nurses'>
+                                        <Typography variant="body2" color="text.primary">
+                                            Blood
+                                        </Typography></Link>
                                 </MenuItem>
                             </Box>
                         </Box>
@@ -110,12 +137,13 @@ export const Navbar = () => {
                                     {
                                         user?.role === 'doctor' ? <Link to="/doctor-info">
                                             {
-                                                user?.avatar?.url ? <img src={user?.avatar?.url} alt="" className="h-8 w-8 border rounded-full" /> : <p className="text-sm font-semibold leading-6 text-gray-900">{user.name}</p>
+                                                user?.avatar?.url ? <img src={user?.avatar?.url} alt="" className="h-8 w-8 border rounded-full" />
+                                                    : <FiUser className="text-4xl border rounded-full p-2" />
                                             }
 
                                         </Link> : <Link to="/user/info">
                                             {
-                                                user?.avatar?.url ? <img src={user?.avatar?.url} alt="" className="h-8 w-8 border rounded-full" /> : <p className="text-sm font-semibold leading-6 text-gray-900">{user.name}</p>
+                                                user?.avatar?.url ? <img src={user?.avatar?.url} alt="" className="h-8 w-8 border rounded-full" /> : <FiUser className="text-4xl border rounded-full p-2" />
                                             }
                                         </Link>
                                     }
@@ -190,69 +218,80 @@ export const Navbar = () => {
                                     </MenuItem>
                                     <Divider />
                                     {user ? (
-            <>
-                <MenuItem>
-                    <Link to="/user/info">
-                        <Typography variant="body2" color="text.primary">
-                            User Details
-                        </Typography>
-                    </Link>
-                </MenuItem>
-                <MenuItem>
-                    <Link to="/user/password-change">
-                        <Typography variant="body2" color="text.primary">
-                            Password Change
-                        </Typography>
-                    </Link>
-                </MenuItem>
-                <MenuItem>
-                    <Link to="/user/orders-history">
-                        <Typography variant="body2" color="text.primary">
-                            Orders History
-                        </Typography>
-                    </Link>
-                </MenuItem>
-                <MenuItem>
-                    <Link to="/user/prescription-history">
-                        <Typography variant="body2" color="text.primary">
-                            Prescription History
-                        </Typography>
-                    </Link>
-                </MenuItem>
-                <MenuItem>
-                    <Link to="/user/nurses-book-history">
-                        <Typography variant="body2" color="text.primary">
-                            Nurses Book History
-                        </Typography>
-                    </Link>
-                </MenuItem>
-            </>
-        ) : (
-            <>
-                <MenuItem>
-                    <Button
-                        color="primary"
-                        variant="contained"
-                        component={Link}
-                        to="/user/register"
-                        sx={{ width: "100%" }}
-                    >
-                        Sign up
-                    </Button>
-                </MenuItem>
-                <MenuItem>
-                    <Button
-                        color="primary"
-                        variant="outlined"
-                        component={Link}
-                        to="/user/login"
-                        sx={{ width: "100%" }}
-                    >
-                        Sign in
-                    </Button>
-                </MenuItem>
-            </>
-        )}
+                                        <>
+                                            <MenuItem>
+                                                <Link to="/user/info">
+                                                    <Typography variant="body2" color="text.primary">
+                                                        User Details
+                                                    </Typography>
+                                                </Link>
+                                            </MenuItem>
+                                            <MenuItem>
+                                                <Link to="/user/password-change">
+                                                    <Typography variant="body2" color="text.primary">
+                                                        Password Change
+                                                    </Typography>
+                                                </Link>
+                                            </MenuItem>
+                                            <MenuItem>
+                                                <Link to="/user/orders-history">
+                                                    <Typography variant="body2" color="text.primary">
+                                                        Orders History
+                                                    </Typography>
+                                                </Link>
+                                            </MenuItem>
+                                            <MenuItem>
+                                                <Link to="/user/prescription-history">
+                                                    <Typography variant="body2" color="text.primary">
+                                                        Prescription History
+                                                    </Typography>
+                                                </Link>
+                                            </MenuItem>
+                                            <MenuItem>
+                                                <Link to="/user/nurses-book-history">
+                                                    <Typography variant="body2" color="text.primary">
+                                                        Nurses Book History
+                                                    </Typography>
+                                                </Link>
+                                            </MenuItem>
+                                            <MenuItem>
+                                                <Button
+                                                    color="primary"
+                                                    variant="outlined"
+                                                    component={Link}
+                                                    sx={{ width: "100%" }}
+                                                    onClick={() => dispatch(logout())}
+                                                >
+                                                    Sign Out
+                                                </Button>
+                                            </MenuItem>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <MenuItem>
+                                                <Button
+                                                    color="primary"
+                                                    variant="contained"
+                                                    component={Link}
+                                                    to="/user/register"
+                                                    sx={{ width: "100%" }}
+                                                >
+                                                    Sign up
+                                                </Button>
+                                            </MenuItem>
+                                            <MenuItem>
+                                                <Button
+                                                    color="primary"
+                                                    variant="outlined"
+                                                    component={Link}
+                                                    to="/user/login"
+                                                    sx={{ width: "100%" }}
+                                                >
+                                                    Sign in
+                                                </Button>
+                                            </MenuItem>
+                                        </>
+                                    )}
                                 </Box>
                             </Drawer>
                         </Box>

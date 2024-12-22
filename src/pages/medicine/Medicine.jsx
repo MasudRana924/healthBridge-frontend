@@ -1,11 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Search } from 'lucide-react';
 import { fetchFilterMedicne } from '../../features/medicine/FilterMedicineSlice';
 import Medicines from '../../components/medicines/Medicines';
 import SkeletonMedicines from '../../components/medicines/SkeletonMedicines';
-import Navbar from '../../components/common/Navbar';
-import Footer from '../../components/common/Footer';
-
 const Medicine = () => {
     const dispatch = useDispatch();
     const { medicines } = useSelector(state => state.medicines.medicines);
@@ -20,23 +18,35 @@ const Medicine = () => {
 
     if (medicines?.length === 0) {
         content = (
-            <div className="col-span-12">
-                <div className="alert alert-error shadow-lg text-start mt-5 h-12 w-1/4 mx-auto">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span className="text-black">No Medicine Found</span>
-                </div>
+            <div className="w-full  md:mt-16  flex flex-col items-center justify-center py-12 px-4">
+            <div className="bg-gray-50 rounded-full p-6 mb-6">
+                <Search className="w-16 h-16 text-red-500" />
             </div>
+
+            <h3 className="text-xl font-semibold text-red-500 mb-2">
+                No Medicine Found
+            </h3>
+
+            <p className="text-gray-500 text-center max-w-sm mb-6">
+                We couldnt find any medicine matching your search criteria. Try adjusting your filters or search terms.
+            </p>
+        </div>
         );
     }
 
     if (medicines?.length > 0) {
-        content = medicines.map(medicine => <Medicines key={medicine._id} medicine={medicine} />);
+        // content = medicines.map(medicine => <Medicines key={medicine._id} medicine={medicine} />);
+          content = (
+                     <div className="grid grid-cols-12 gap-4 p-3 lg:p-0 lg:w-3/4 2xl:w-3/4 mx-auto lg:px-0 min-h-[300px]">
+                         {medicines.map(medicine => (
+                             <Medicines key={medicine._id} medicine={medicine} />
+                         ))}
+                     </div>
+                 );
     }
 
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col ">
             <section className="flex-grow pt-12 mb-10 lg:mt-16">
                 {isLoading ? (
                     <div className="grid grid-cols-12 gap-4 p-3 lg:p-0 lg:w-3/4 2xl:w-2/4 mx-auto lg:px-0 min-h-[300px]">
@@ -46,7 +56,7 @@ const Medicine = () => {
                         ))}
                     </div>
                 ) : (
-                    <div className="grid grid-cols-12 gap-4 p-3 lg:p-0 lg:w-3/4 2xl:w-2/4 mx-auto lg:px-0 min-h-[300px]">
+                    <div className="w-full md:w-full lg:w-full">
                         {content}
                     </div>
                 )}

@@ -5,7 +5,7 @@ const Nurse = ({nurse}) => {
     const { name,fees,images } = nurse;
 
     return (
-        <div className="bg-white  col-span-6 sm:col-span-6 md:col-span-4 lg:col-span-3 ">
+        <div className="bg-white  col-span-6 sm:col-span-6 md:col-span-4 lg:col-span-4 ">
         <div className="w-full flex flex-col border rounded-lg">
             <div className="relative">
                 <Link to={`/nurse/${nurse._id}`}>

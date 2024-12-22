@@ -1,5 +1,6 @@
 import { Box, Container, Grid, Typography, Link, Divider } from "@mui/material";
 import { Facebook, LinkedIn, Instagram } from "@mui/icons-material";
+
 const Footer = () => {
     return (
         <Box
@@ -18,7 +19,7 @@ const Footer = () => {
                             gutterBottom
                             sx={{ fontSize: "16px", fontWeight: "bold", lineHeight: "1.5" }}
                         >
-                            Discover
+                            Our Services
                         </Typography>
                         <Box sx={{ pl: 0, fontSize: "14px" }}>
                             <Grid container spacing={2}>
@@ -29,7 +30,7 @@ const Footer = () => {
                                         sx={{ fontSize: "14px", lineHeight: "1.8" }}
                                     >
                                         <Link href="#" color="inherit" underline="none">
-                                            Home
+                                            Find Doctors
                                         </Link>
                                     </Typography>
                                     <Typography
@@ -38,7 +39,7 @@ const Footer = () => {
                                         sx={{ fontSize: "14px", lineHeight: "1.8" }}
                                     >
                                         <Link href="#" color="inherit" underline="none">
-                                            Terms
+                                            Order Medicine
                                         </Link>
                                     </Typography>
                                     <Typography
@@ -47,7 +48,7 @@ const Footer = () => {
                                         sx={{ fontSize: "14px", lineHeight: "1.8" }}
                                     >
                                         <Link href="#" color="inherit" underline="none">
-                                            Talent & Culture
+                                            Book Nurses
                                         </Link>
                                     </Typography>
                                 </Grid>
@@ -58,7 +59,7 @@ const Footer = () => {
                                         sx={{ fontSize: "14px", lineHeight: "1.8" }}
                                     >
                                         <Link href="#" color="inherit" underline="none">
-                                            Refund Policy
+                                            Call Ambulance
                                         </Link>
                                     </Typography>
                                     <Typography
@@ -67,7 +68,7 @@ const Footer = () => {
                                         sx={{ fontSize: "14px", lineHeight: "1.8" }}
                                     >
                                         <Link href="#" color="inherit" underline="none">
-                                            EMI Policy
+                                            Health Packages
                                         </Link>
                                     </Typography>
                                     <Typography
@@ -76,7 +77,7 @@ const Footer = () => {
                                         sx={{ fontSize: "14px", lineHeight: "1.8" }}
                                     >
                                         <Link href="#" color="inherit" underline="none">
-                                            Privacy Policy
+                                            Lab Tests
                                         </Link>
                                     </Typography>
                                 </Grid>
@@ -90,7 +91,7 @@ const Footer = () => {
                             gutterBottom
                             sx={{ fontSize: "16px", fontWeight: "bold", lineHeight: "1.5" }}
                         >
-                            Payment Methods
+                            Payment Options
                         </Typography>
                         <Box
                             sx={{
@@ -100,8 +101,8 @@ const Footer = () => {
                             }}
                         >
                             <img
-                                src="https://signup.sslcommerz.com/assets/global/img/paywith_mobile_versionW.png"
-                                alt="Payment Method"
+                                src="/api/placeholder/240/80"
+                                alt="Payment Methods Accepted"
                                 style={{ maxWidth: "80%" }}
                             />
                         </Box>
@@ -113,15 +114,14 @@ const Footer = () => {
                             gutterBottom
                             sx={{ fontSize: "16px", fontWeight: "bold", lineHeight: "1.5" }}
                         >
-                            Need Help?
+                            24/7 Medical Support
                         </Typography>
                         <Typography
                             variant="body2"
                             gutterBottom
                             sx={{ fontSize: "14px", lineHeight: "1.8" }}
                         >
-                            We&apos;re here for you 24/7! Reach out to us through Messenger or
-                            call anytime, day or night, for the support you need.
+                            Emergency medical assistance available 24/7. Our dedicated team is always ready to help you with medical emergencies, doctor appointments, and MedEase queries.
                         </Typography>
                         <Typography
                             variant="h6"
@@ -133,13 +133,15 @@ const Footer = () => {
                                 mt: 2,
                             }}
                         >
-                            Experience Center
+                            Main Medical Center
                         </Typography>
                         <Typography
                             variant="body2"
                             sx={{ fontSize: "14px", lineHeight: "1.8" }}
                         >
-                            HealthBridge, Dhaka
+                            MedEase Medical Center
+                            <br />
+                            123 Medical Avenue
                         </Typography>
                     </Grid>
 
@@ -149,19 +151,21 @@ const Footer = () => {
                             gutterBottom
                             sx={{ fontSize: "16px", fontWeight: "bold", lineHeight: "1.5" }}
                         >
-                            Contact
+                            Contact Us
                         </Typography>
                         <Typography
                             variant="body2"
                             sx={{ fontSize: "14px", lineHeight: "1.8" }}
                         >
-                            info@healthbridge.com
+                            Emergency: 1-800-Medease
                             <br />
-                            +88 09678 232425
+                            support@MedEase.com
+                            <br />
+                            Appointments: +1 (555) 123-4567
                         </Typography>
                         <Box sx={{ display: "flex", gap: "12px", mt: 2 }}>
                             <Link
-                                href="https://www.facebook.com/innovatica.software"
+                                href="#"
                                 color="inherit"
                                 underline="none"
                                 sx={{
@@ -182,7 +186,7 @@ const Footer = () => {
                                 <Facebook />
                             </Link>
                             <Link
-                                href="https://www.linkedin.com/company/innovatica-software-lab-ltd"
+                                href="#"
                                 color="inherit"
                                 underline="none"
                                 sx={{
@@ -203,7 +207,7 @@ const Footer = () => {
                                 <LinkedIn />
                             </Link>
                             <Link
-                                href="https://www.instagram.com/innovatica_software"
+                                href="#"
                                 color="inherit"
                                 underline="none"
                                 sx={{
@@ -237,11 +241,12 @@ const Footer = () => {
                         variant="body2"
                         sx={{ fontSize: "14px", lineHeight: "1.5" }}
                     >
-                        © Copyright HealthBridge
+                        © {new Date().getFullYear()} MedEase Hub - Your Complete MedEase Solution
                     </Typography>
                 </Box>
             </Container>
         </Box>
     );
 };
+
 export default Footer;

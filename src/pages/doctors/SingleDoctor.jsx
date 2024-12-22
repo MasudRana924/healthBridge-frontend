@@ -112,7 +112,7 @@ const userToken = loggeduser.token
                   <GiHospitalCross className="mr-3 text-white" /> Hospital Visit
                 </button>
               </Link>
-              {isLoading ? (
+              {/* {isLoading ? (
                 <Skeleton variant="rectangular" width="100%" height={40} />
               ) : (
                 doctor?.isActive && (
@@ -125,7 +125,7 @@ const userToken = loggeduser.token
                     </button>
                   </Link>
                 )
-              )}
+              )} */}
             </div>
           </div>
         </div>

@@ -1,10 +1,11 @@
-
-import backImage from '../../assets/background.jpg';
+import backImage from '../../assets/agritech-banner.webp';
 import { styled, Box } from '@mui/material';
 import Footer from '../../components/common/Footer';
 import Navbar from '../../components/common/Navbar';
 import Medicine from '../medicine/Medicine';
 import SearchLayout from './SearchLayout';
+import MedicineStats from '../stats/MedicineStats';
+import MedicineFaqLayout from '../faq/MedicineFaqLayout';
 
 
 const MainWrapper = styled('div')(() => ({
@@ -31,7 +32,7 @@ const MedicineLayout = () => {
                     top: 0,
                     left: 0,
                     width: '100%',
-                    height: '55vh',
+                    height: '75vh',
                     backgroundImage: `url(${backImage})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
@@ -50,7 +51,8 @@ const MedicineLayout = () => {
                 >
                 <SearchLayout/>
                 <Medicine/>
-                    
+                <MedicineStats/>
+                <MedicineFaqLayout/>
                 </Box>
                 <Footer />
             </PageWrapper>
