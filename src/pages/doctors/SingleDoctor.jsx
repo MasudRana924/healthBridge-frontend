@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import Skeleton from '@mui/material/Skeleton';
 import { FaRegMoneyBillAlt } from 'react-icons/fa';
 import { GiHospitalCross } from 'react-icons/gi';
-import { BiVideoOff } from 'react-icons/bi';
 import { fetchDoctor } from '../../features/doctor/doctorSlice';
 import Navbar from '../../components/common/Navbar';
 import Footer from '../../components/common/Footer';
@@ -12,14 +11,15 @@ import Rating from '@mui/material/Rating';
 import { useState } from 'react';
 import { createreviews } from '../../features/doctor/reviewSlice';
 import Reviews from '../../components/reviews/Reviews';
+import ReviewComponent from '../../components/reviews/ReviewComponent';
 
 const SingleDoctor = () => {
   const dispatch = useDispatch();
   const { loggeduser } = useSelector(
     (state) => state.userDetails
-);
-const user = loggeduser.user;
-const userToken = loggeduser.token
+  );
+  const user = loggeduser.user;
+  const userToken = loggeduser.token
   const { doctorId } = useParams();
   const { doctor, isLoading, isError, error } = useSelector((state) => state.doctor.doctor);
   useEffect(() => {
@@ -30,19 +30,19 @@ const userToken = loggeduser.token
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
   const reviewSubmitHandler = () => {
-      const myForm = new FormData();
-      myForm.set("rating", rating);
-      myForm.set("comment", comment);
-      myForm.set("doctorId", doctor._id);
-      const data = ({ rating, comment, doctorId });
-      if (userToken) {
-          dispatch(createreviews({ data, userToken }));
-      }
+    const myForm = new FormData();
+    myForm.set("rating", rating);
+    myForm.set("comment", comment);
+    myForm.set("doctorId", doctor._id);
+    const data = ({ rating, comment, doctorId });
+    if (userToken) {
+      dispatch(createreviews({ data, userToken }));
+    }
   };
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="border flex flex-col min-h-screen">
       <Navbar />
-      <section className="flex-grow p-3 lg:p-0 lg:w-3/4 mx-auto pt-6 pb-20 mt-12 lg:mt-48">
+      <section className="w-full flex-grow p-3 lg:p-0 lg:w-3/4 mx-auto pt-6 pb-20 mt-12 lg:mt-48">
         <div className="lg:mr-0 lg:w-full mx-auto lg:flex justify-between mt-5  shadow-xl pb-4 md:pb-0">
           {/* Doctor Image and Basic Info */}
           <div className="lg:flex lg:w-2/4 justify-between mb-5">
@@ -105,10 +105,10 @@ const userToken = loggeduser.token
 
             <div className="mr-12 lg:mr-2">
               <Link to="/onsite/appointment">
-              <button
-                      className="w-full h-10 mt-5 flex items-center justify-center border rounded-lg text-white mb-10"
-                      style={{ backgroundColor: '#EB569A', border: '1px solid #EB569A' }}
-                    >
+                <button
+                  className="w-full h-10 mt-5 flex items-center justify-center border rounded-lg text-white mb-10"
+                  style={{ backgroundColor: '#EB569A', border: '1px solid #EB569A' }}
+                >
                   <GiHospitalCross className="mr-3 text-white" /> Hospital Visit
                 </button>
               </Link>
@@ -133,34 +133,34 @@ const userToken = loggeduser.token
         {/* Error Handling */}
         {isError && <p className="text-red-500">{error}</p>}
 
-            <div className="mt-4 mb-8">
-             <div className="w-full  mx-auto border p-4">
+        {/* <div className="mt-4 mb-8">
+          <div className="w-full  mx-auto border p-4">
 
-                    <h2 className="text-start  text-md">Reviews ({doctor?.reviews?.length})</h2>
-                     {
-                        doctor?.reviews[0] ? doctor?.reviews.map((review) => (<Reviews key={review._id} review={review} />))
-                            : <p className="text-2xl text-start mt-10 text-red-700">No Reviews Yet !</p>
-                     }
-                 </div>
-                 {
-                     user ? <div className="w-2/4 mt-4 ">
-                         <p className="mb-3 text-start font-semibold">Give a review</p>
-                         <Rating
-                             onChange={(e) => setRating(e.target.value)}
-                             value={rating}
-                             className='w-full'
-                         />
-                         <br />
-                         <textarea placeholder="Write ..." className="textarea textarea-bordered textarea-sm mt-2 w-full ml-0 border p-2 rounded-lg outline-style-none" value={comment}
-                             onChange={(e) => setComment(e.target.value)}></textarea>
-                         <br />
-                         <button className="w-full border rounded-lg text-white  h-10 mt-2" onClick={reviewSubmitHandler}
-                         style={{ backgroundColor: '#EB569A', border: '1px solid #EB569A' }}>Submit</button>
-                     </div> : null
-                 }
-             </div>
+            <h2 className="text-start  text-md">Reviews ({doctor?.reviews?.length})</h2>
+            {
+              doctor?.reviews[0] ? doctor?.reviews.map((review) => (<Reviews key={review._id} review={review} />))
+                : <p className="text-2xl text-start mt-10 text-red-700">No Reviews Yet !</p>
+            }
+          </div>
+          {
+            user ? <div className="w-2/4 mt-4 ">
+              <p className="mb-3 text-start font-semibold">Give a review</p>
+              <Rating
+                onChange={(e) => setRating(e.target.value)}
+                value={rating}
+                className='w-full'
+              />
+              <br />
+              <textarea placeholder="Write ..." className="textarea textarea-bordered textarea-sm mt-2 w-full ml-0 border p-2 rounded-lg outline-style-none" value={comment}
+                onChange={(e) => setComment(e.target.value)}></textarea>
+              <br />
+              <button className="w-full border rounded-lg text-white  h-10 mt-2" onClick={reviewSubmitHandler}
+                style={{ backgroundColor: '#EB569A', border: '1px solid #EB569A' }}>Submit</button>
+            </div> : null
+          }
+        </div> */}
       </section>
-
+<ReviewComponent/>
       {/* Footer stays at bottom */}
       <Footer className="mt-auto" />
     </div>
