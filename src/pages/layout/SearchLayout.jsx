@@ -42,7 +42,7 @@ const SearchLayout = () => {
                                 onClick={handleSearch}
                                 className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-lg bg-red-50 hover:bg-red-100 transition-colors duration-200"
                             >
-                                <BsSearch className="text-blue-500 w-5 h-5" />
+                                <BsSearch className="text-violet-500 w-5 h-5" />
                             </button>
                         </div>
                     <Link
@@ -50,9 +50,9 @@ const SearchLayout = () => {
                         className="flex items-center justify-center w-12 h-12 rounded-lg bg-red-50 hover:bg-red-100 transition-colors duration-200"
                     >
                         <div className="relative">
-                            <BsBag className="w-6 h-6 text-blue-500" />
+                            <BsBag className="w-6 h-6 text-violet-500" />
                             {cartTotalQuantity > 0 && (
-                                <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                                <span className="absolute -top-2 -right-2 bg-violet-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                                     {cartTotalQuantity}
                                 </span>
                             )}

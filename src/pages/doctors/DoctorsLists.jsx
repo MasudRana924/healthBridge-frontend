@@ -49,25 +49,25 @@ const DoctorsLists = ({ doctor }) => {
           </div>
 
           <div className="flex items-center gap-2 mt-4 text-gray-600">
-            <MapPin className="w-4 h-4 text-blue-600" />
+            <MapPin className="w-4 h-4 text-violet-600" />
             <p className="text-sm">{work || <Skeleton />}</p>
           </div>
 
           <div className="grid grid-cols-3 gap-4 mt-6">
             <div className="text-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-              <Award className="w-5 h-5 mx-auto text-blue-600 mb-1" />
+              <Award className="w-5 h-5 mx-auto text-violet-600 mb-1" />
               <p className="text-xs text-gray-600">Experience</p>
               <p className="font-medium">{experience} Years</p>
             </div>
             
             <div className="text-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-              <Users className="w-5 h-5 mx-auto text-blue-600 mb-1" />
+              <Users className="w-5 h-5 mx-auto text-violet-600 mb-1" />
               <p className="text-xs text-gray-600">Ratings</p>
               <p className="font-medium">{ratings}</p>
             </div>
             
             <div className="text-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-              <Clock className="w-5 h-5 mx-auto text-blue-600 mb-1" />
+              <Clock className="w-5 h-5 mx-auto text-violet-600 mb-1" />
               <p className="text-xs text-gray-600">Fees</p>
               <p className="font-medium">${fees}</p>
             </div>

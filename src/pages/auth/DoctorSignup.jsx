@@ -421,7 +421,7 @@ const DoctorSignup = () => {
                     {/* Left Panel - Information */}
                     <div className="hidden lg:block space-y-12 pr-8 pt-12">
                         <div className="space-y-6">
-                            <h1 className="text-5xl font-bold text-blue-500">
+                            <h1 className="text-5xl font-bold text-violet-500">
                                 Are You A Qualified Doctor?
                             </h1>
                             <p className="text-3xl font-semibold text-gray-800">
@@ -433,14 +433,14 @@ const DoctorSignup = () => {
                         </div>
 
                         <div className="space-y-6 bg-white p-8 rounded-xl shadow-lg">
-                            <h2 className="text-3xl font-bold text-blue-500">Benefits Of Joining</h2>
+                            <h2 className="text-3xl font-bold text-violet-500">Benefits Of Joining</h2>
                             <div className="space-y-4">
                                 {['Simple onboarding with BMDC verification',
                                   'Be at the forefront of digital healthcare',
                                   'Work independently with technical support'].map((benefit, index) => (
                                     <div key={index} className="flex items-start space-x-4">
                                         <div className="flex-shrink-0 w-6 h-6 mt-1 rounded-full bg-blue-100 flex items-center justify-center">
-                                            <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                                            <div className="w-2 h-2 rounded-full bg-violet-500"></div>
                                         </div>
                                         <p className="text-lg text-gray-700">{benefit}</p>
                                     </div>
@@ -451,7 +451,7 @@ const DoctorSignup = () => {
 
                     {/* Right Panel - Registration Form */}
                     <div className="bg-white rounded-xl shadow-lg p-8 lg:p-12">
-                        <h2 className="text-3xl font-bold text-center text-blue-500 mb-8">
+                        <h2 className="text-3xl font-bold text-center text-violet-500 mb-8">
                             Doctor Registration
                         </h2>
 
@@ -466,7 +466,7 @@ const DoctorSignup = () => {
                                             className="w-full h-full object-cover"
                                         />
                                     </div>
-                                    <label className="absolute bottom-0 right-0 bg-blue-500 p-3 rounded-full cursor-pointer shadow-lg hover:bg-blue-600 transition-colors">
+                                    <label className="absolute bottom-0 right-0 bg-violet-500 p-3 rounded-full cursor-pointer shadow-lg hover:bg-violet-600 transition-colors">
                                         <Camera className="h-5 w-5 text-white" />
                                         <input
                                             type="file"
@@ -618,14 +618,14 @@ const DoctorSignup = () => {
                             <button
                                 type="submit"
                                 disabled={isLoading}
-                                className="w-full py-3 px-4 mt-8 rounded-lg font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors disabled:opacity-50"
+                                className="w-full py-3 px-4 mt-8 rounded-lg font-medium text-white bg-violet-500 hover:bg-violet-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500 transition-colors disabled:opacity-50"
                             >
                                 {isLoading ? "Creating your account..." : "Complete Registration"}
                             </button>
 
                             <p className="text-center text-gray-600 mt-4">
                                 Already have an account?{' '}
-                                <Link to="/doctor/login" className="text-blue-500 hover:text-blue-600 font-medium">
+                                <Link to="/doctor/login" className="text-violet-500 hover:text-violet-600 font-medium">
                                     Sign in instead
                                 </Link>
                             </p>

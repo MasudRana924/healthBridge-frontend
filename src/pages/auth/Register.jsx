@@ -150,7 +150,7 @@
 //                         </div>
 //                         <div >
 //                             <Link to="/doctor/signup">
-//                                 <p className="text-sm font-semibold leading-6 text-blue-500 text-center ">Login as Doctor</p>
+//                                 <p className="text-sm font-semibold leading-6 text-violet-500 text-center ">Login as Doctor</p>
 //                             </Link>
 //                         </div>
 //                     </form>
@@ -235,7 +235,7 @@ const Register = () => {
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
-                                <label className="absolute bottom-0 right-0 bg-blue-500 p-2 rounded-full cursor-pointer shadow-lg hover:bg-blue-600 transition-colors">
+                                <label className="absolute bottom-0 right-0 bg-violet-500 p-2 rounded-full cursor-pointer shadow-lg hover:bg-violet-600 transition-colors">
                                     <Camera className="h-4 w-4 text-white" />
                                     <input
                                         type="file"
@@ -298,7 +298,7 @@ const Register = () => {
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className="group relative w-full flex justify-center py-3 px-4 border border-transparent rounded-lg text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                            className="group relative w-full flex justify-center py-3 px-4 border border-transparent rounded-lg text-white bg-violet-500 hover:bg-violet-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500 transition-colors"
                         >
                             {isLoading ? "Creating account..." : "Sign up"}
                         </button>
@@ -307,7 +307,7 @@ const Register = () => {
                             <div className="text-center text-sm">
                                 <span className="text-gray-500">Already have an account?</span>
                                 {' '}
-                                <Link to="/user/login" className="font-medium text-blue-600 hover:text-blue-500">
+                                <Link to="/user/login" className="font-medium text-violet-600 hover:text-violet-500">
                                     Sign in
                                 </Link>
                             </div>

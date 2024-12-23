@@ -86,7 +86,7 @@ const UserDetails = () => {
                                 {/* Camera Icon */}
                                 <label
                                     htmlFor="avatar"
-                                    className="absolute bottom-2 right-2 bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full cursor-pointer shadow-md"
+                                    className="absolute bottom-2 right-2 bg-violet-500 hover:bg-violet-600 text-white p-2 rounded-full cursor-pointer shadow-md"
                                 >
                                     <FaCamera className="text-xl" />
                                 </label>

@@ -45,12 +45,12 @@ const NurseStats = () => {
             >
               <div className="flex flex-col items-center">
                 <div className="p-3 bg-blue-50 rounded-full mb-4">
-                  <stat.icon className="h-8 w-8 text-blue-600" />
+                  <stat.icon className="h-8 w-8 text-violet-600" />
                 </div>
                 <dt className="text-sm font-medium text-gray-500 text-center">
                   {stat.name}
                 </dt>
-                <dd className="mt-2 text-3xl font-bold text-blue-600">
+                <dd className="mt-2 text-3xl font-bold text-violet-600">
                   {stat.value}
                 </dd>
                 <p className="mt-2 text-sm text-gray-600 text-center">

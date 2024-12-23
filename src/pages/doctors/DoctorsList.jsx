@@ -84,10 +84,10 @@ const DoctorsList = () => {
         content = (
             <div className="w-full md:mt-12  flex flex-col items-center justify-center py-12 px-4">
                 <div className="bg-gray-50 rounded-full p-6 mb-6">
-                    <Search className="w-16 h-16 text-blue-500" />
+                    <Search className="w-16 h-16 text-violet-500" />
                 </div>
 
-                <h3 className="text-xl font-semibold text-blue-500 mb-2">
+                <h3 className="text-xl font-semibold text-violet-500 mb-2">
                     No Doctors Found
                 </h3>
 

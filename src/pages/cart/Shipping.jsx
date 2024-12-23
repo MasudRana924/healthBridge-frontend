@@ -123,7 +123,7 @@ const Shipping = () => {
                         <TextField id="filled-basic" label="Phone No" variant="filled" className="w-full mt-5" value={phone} onChange={(e) => setPhone(e.target.value)} />
                     </div>
                     <div className="mt-5 w-full">
-                        <button  className="w-full flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 h-10" onClick={CreateOrder}>Confirm</button>
+                        <button  className="w-full flex items-center justify-center rounded-md border border-transparent bg-violet-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-violet-700 h-10" onClick={CreateOrder}>Confirm</button>
                     </div>
                 </form>
 
@@ -176,7 +176,7 @@ const Shipping = () => {
                                             <button
                                                 type="button"
 
-                                                className="font-medium text-indigo-600 hover:text-indigo-500"
+                                                className="font-medium text-violet-600 hover:text-violet-500"
                                             >
                                                 Continue Shopping
                                                 <span aria-hidden="true"> &rarr;</span>
@@ -191,7 +191,7 @@ const Shipping = () => {
 
                     </div> : <div className="w-ful mb-20">
                         <img src={cartImg} alt="" className="w-3/4 lg:w-1/4 mx-auto h-52" />
-                        <p className="mt-10 text-blue-500 font-bold">Your Cart is Currently Empty</p>
+                        <p className="mt-10 text-violet-500 font-bold">Your Cart is Currently Empty</p>
                     </div>
                 }
                 <ToastContainer

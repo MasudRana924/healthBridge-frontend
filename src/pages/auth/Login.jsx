@@ -205,12 +205,12 @@ const Login = () => {
 
                         <div className="flex items-center justify-between">
                             <div className="text-sm">
-                                <Link to="/doctor/login" className="font-medium text-blue-600 hover:text-blue-500">
+                                <Link to="/doctor/login" className="font-medium text-violet-600 hover:text-violet-500">
                                     Login as a doctor
                                 </Link>
                             </div>
                             <div className="text-sm">
-                                <Link to="/user/password" className="font-medium text-blue-600 hover:text-blue-500">
+                                <Link to="/user/password" className="font-medium text-violet-600 hover:text-violet-500">
                                     Forgot password?
                                 </Link>
                             </div>
@@ -219,7 +219,7 @@ const Login = () => {
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150"
+                            className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-violet-500 hover:bg-violet-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500 transition duration-150"
                         >
                             {isLoading ? "Please wait..." : "Sign in"}
                         </button>
@@ -227,7 +227,7 @@ const Login = () => {
                         <div className="text-center text-sm">
                             <span className="text-gray-500">Dont have an account?</span>
                             {' '}
-                            <Link to="/user/register" className="font-medium text-blue-600 hover:text-blue-500">
+                            <Link to="/user/register" className="font-medium text-violet-600 hover:text-violet-500">
                                 Create new account
                             </Link>
                         </div>

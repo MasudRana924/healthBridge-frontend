@@ -52,7 +52,7 @@ import {
               className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-200"
             >
               <div className="flex items-center justify-center w-12 h-12 mb-4 bg-blue-100 rounded-lg">
-                <item.icon className="w-6 h-6 text-blue-600" />
+                <item.icon className="w-6 h-6 text-violet-600" />
               </div>
   
               <div>

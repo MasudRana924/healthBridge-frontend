@@ -12,11 +12,11 @@ const Nurse = ({nurse}) => {
                 <div className="relative">
                     {/* Wishlist Button */}
                     <button className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-md hover:scale-110 transition-transform duration-200 z-10">
-                        <Heart className="w-4 h-4 text-gray-500 hover:text-blue-500 transition-colors" />
+                        <Heart className="w-4 h-4 text-gray-500 hover:text-violet-500 transition-colors" />
                     </button>
 
                     {/* Experience Badge */}
-                    <div className="absolute top-3 left-3 bg-blue-500/80 backdrop-blur-sm text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-sm z-10">
+                    <div className="absolute top-3 left-3 bg-violet-500/80 backdrop-blur-sm text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-sm z-10">
                         5+ Years
                     </div>
 
@@ -33,7 +33,7 @@ const Nurse = ({nurse}) => {
 
                 <div className="p-5 space-y-4">
                     <Link to={`/nurse/${nurse._id}`}>
-                        <h3 className="text-lg font-semibold text-gray-800 hover:text-blue-600 transition-colors">
+                        <h3 className="text-lg font-semibold text-gray-800 hover:text-violet-600 transition-colors">
                             {name}
                         </h3>
                     </Link>
@@ -49,7 +49,7 @@ const Nurse = ({nurse}) => {
                     {/* Info Grid */}
                     <div className="grid grid-cols-2 gap-4">
                         <div className="flex items-center gap-2 bg-gray-50 p-3 rounded-lg">
-                            <Clock className="w-5 h-5 text-blue-500" />
+                            <Clock className="w-5 h-5 text-violet-500" />
                             <div>
                                 <p className="text-xs text-gray-500">Available</p>
                                 <p className="text-sm font-medium">24/7</p>
@@ -71,7 +71,7 @@ const Nurse = ({nurse}) => {
                     </div>
 
                     {/* Book Now Button */}
-                    <button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors duration-200">
+                    <button className="w-full bg-gradient-to-r from-violet-500 to-violet-600 hover:from-violet-600 hover:to-blue-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors duration-200">
                         Book Appointment
                     </button>
                 </div>

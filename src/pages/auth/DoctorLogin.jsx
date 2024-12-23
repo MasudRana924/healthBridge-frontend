@@ -76,7 +76,7 @@ const DoctorLogin = () => {
                                 value={password} onChange={(e) => setPassword(e.target.value)}
                             />
                             <Link to="/doctor/forgot-password">
-                            <p className="text-start text-blue-500 ">Forgot password ?</p></Link>
+                            <p className="text-start text-violet-500 ">Forgot password ?</p></Link>
                             <div>
                                 
                                   {

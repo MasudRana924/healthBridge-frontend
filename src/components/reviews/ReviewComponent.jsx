@@ -40,7 +40,7 @@ const ReviewComponent = () => {
                   <Star
                     key={index}
                     className={`h-6 w-6 ${
-                      index < 4 ? "text-blue-500" : "text-gray-300"
+                      index < 4 ? "text-violet-500" : "text-gray-300"
                     }`}
                   />
                 ))}
@@ -56,7 +56,7 @@ const ReviewComponent = () => {
                 </span>
                 <div className="flex-1 mx-2 bg-gray-200 rounded-full h-2 relative">
                   <div
-                    className="bg-blue-500 h-2 rounded-full"
+                    className="bg-violet-500 h-2 rounded-full"
                     style={{ width: `${rating.percentage}%` }}
                   ></div>
                 </div>
@@ -91,7 +91,7 @@ const ReviewComponent = () => {
           </div>
 
           <textarea
-            className="w-full mt-4 p-2 border rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full mt-4 p-2 border rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
             placeholder="Write your feedback..."
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}

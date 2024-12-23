@@ -36,7 +36,7 @@ const SearchNurseLayout = () => {
                 />
                 <button
                     onClick={handleSearch}
-                    className="ml-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center"
+                    className="ml-2 bg-violet-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center"
                 >
                     <FiSearch className="mr-2" />
                     Search
@@ -52,7 +52,7 @@ const SearchNurseLayout = () => {
                         onClick={() => setLocation(loc)}
                         style={{ margin: "5px" }} // Margin around each button
                     >
-                        <FiMapPin className="mr-2 text-blue-600" />
+                        <FiMapPin className="mr-2 text-violet-600" />
                         {loc}
                     </button>
                 ))}
