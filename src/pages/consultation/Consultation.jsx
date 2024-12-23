@@ -38,6 +38,7 @@ const Consultation = () => {
             <p className="text-start text-xl lg:text-xl 2xl:text-2xl text-gray-900 font-bold mt-4">
                 Please select a speciality
             </p>
+            <hr />
             <div className="grid grid-cols-12 gap-2 m-3 md:m-0 lg:m-0 lg:w-full 2xl:w-full mx-auto lg:mt-8">
                 {content}
             </div>

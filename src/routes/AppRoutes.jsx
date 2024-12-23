@@ -2,7 +2,6 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import HomeLayout from '../pages/layout/HomeLayout';
 import Login from '../pages/auth/Login';
 import Consultation from '../pages/consultation/Consultation';
-import NurseConsultation from '../pages/consultation/NurseConsultation';
 import Register from '../pages/auth/Register';
 import DoctorLogin from '../pages/auth/DoctorLogin';
 import DoctorSignup from '../pages/auth/DoctorSignup';
@@ -30,7 +29,6 @@ const AppRoutes = () => {
             <Route path="/" element={<HomeLayout />}>
                 <Route index element={<Navigate to="find-doctor" />} />
                 <Route path="find-doctor" element={<Consultation />} />
-                <Route path="find-nurse" element={<NurseConsultation />} />
             </Route>
             <Route path="/user/login" element={<Login />} />
             <Route path="/user/register" element={<Register />} />
