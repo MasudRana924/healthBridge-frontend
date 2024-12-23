@@ -23,6 +23,7 @@ import OrderHistory from '../pages/user/OrderHistory';
 import Payment from '../pages/appointment/Payment';
 import OrderPayment from '../pages/user/OrderPayment';
 import PrivateRoute from './PrivateRoute';
+import BloodLayout from '../pages/layout/BloodLayout';
 const AppRoutes = () => {
     return (
         <Routes>
@@ -48,6 +49,12 @@ const AppRoutes = () => {
             <Route path="/medicine/store" element={<MedicineLayout />} />
             <Route path="/doctor/:doctorId" element={<SingleDoctor />}></Route>
             <Route path="/nurses" element={<NurseLayout />} />
+
+           {/* blood */}
+           <Route path="/blood-store" element={<BloodLayout />} />
+
+
+
             <Route path="/cart" element={<Cart />} />
             <Route path="/shipping" element={<PrivateRoute><Shipping></Shipping></PrivateRoute>} />
             {/* appointment */}

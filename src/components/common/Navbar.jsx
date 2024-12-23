@@ -118,7 +118,7 @@ export const Navbar = () => {
                                 <MenuItem
                                     sx={{ py: "6px", px: "12px" }}
                                 >
-                                    <Link to='/nurses'>
+                                    <Link to='/blood-store'>
                                         <Typography variant="body2" color="text.primary">
                                             Blood
                                         </Typography></Link>
