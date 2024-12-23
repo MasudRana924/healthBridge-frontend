@@ -99,7 +99,7 @@ const DoctorsList = () => {
     } else if (!isLoading && !isError && doctors?.length > 0) {
         // Render the list of doctors
         content = (
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                 {doctors.map(doctor => (
                     <DoctorsLists key={doctor._id} doctor={doctor} />
                 ))}

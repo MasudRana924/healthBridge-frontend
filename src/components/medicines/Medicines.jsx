@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { message } from "antd";
 import { useDispatch } from 'react-redux';
 import { addToCart, getTotals } from '../../features/medicine/cartSlice';
-import { Heart } from 'lucide-react'; // Import the Heart icon from Lucide
+import { Heart, Plus, Star } from 'lucide-react';
 
 const Medicines = ({ medicine }) => {
     const dispatch = useDispatch();
-
+    
     const handleCart = (product) => {
         dispatch(addToCart(product));
         dispatch(getTotals());
@@ -16,46 +16,61 @@ const Medicines = ({ medicine }) => {
 
     return (
         <div className="col-span-6 sm:col-span-6 md:col-span-4 lg:col-span-4">
-            <div className="w-full flex flex-col bg-white border rounded-lg relative"> {/* Added relative here */}
-                <div className="absolute top-2 left-2 bg-red-600 text-white text-sm py-1 px-3 rounded-md z-10">
-                    5% OFF
-                </div>
-                {/* Heart Icon */}
-                <div className="absolute top-2 right-2 text-gray-500 z-10">
-                    <Heart className="text-xl cursor-pointer" />
-                </div>
-
+            <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group">
                 <div className="relative">
-                    <Link>
-                        <img
-                            src={medicine.image.url}
-                            className="w-full h-48 p-4"
-                            alt={medicine.name}
-                        />
+                    {/* Discount Badge */}
+                    <div className="absolute top-3 left-3 bg-gradient-to-r from-red-500 to-red-600 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-sm z-20">
+                        5% OFF
+                    </div>
+                    
+                    {/* Wishlist Button */}
+                    <button className="absolute top-3 right-3 bg-white p-2 rounded-full shadow-md hover:scale-110 transition-transform duration-200 z-20">
+                        <Heart className="w-4 h-4 text-gray-500 hover:text-red-500 transition-colors" />
+                    </button>
+                    
+                    {/* Image Container */}
+                    <Link to={`/medicine/${medicine._id}`}>
+                        <div className="relative h-56 overflow-hidden">
+                            <img
+                                src={medicine.image.url}
+                                className="w-full h-full object-contain p-6 transform group-hover:scale-105 transition-transform duration-300"
+                                alt={medicine.name}
+                            />
+                        </div>
                     </Link>
                 </div>
 
-                <div className="lg:block md:block text-start p-5">
-                    <p className="text-slate-400 text-sm font-sm">{medicine.type}</p>
+                <div className="p-5">
+                    <span className="inline-block bg-blue-50 text-blue-600 text-xs font-medium px-2.5 py-1 rounded-full">
+                        {medicine.type}
+                    </span>
+                    
                     <Link to={`/medicine/${medicine._id}`}>
-                        <p className="text-sm font-semibold leading-6 text-gray-900 mt-2">
+                        <h3 className="mt-3 text-gray-900 font-semibold text-sm hover:text-blue-600 transition-colors">
                             {medicine.name}
-                        </p>
+                        </h3>
                     </Link>
+                    
+                    <div className="flex items-center mt-2">
+                        {[...Array(5)].map((_, i) => (
+                            <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                        ))}
+                        <span className="text-xs text-gray-500 ml-2">(24 reviews)</span>
+                    </div>
 
-                    <div className="flex justify-between gap-2 items-center">
-                        <p className="text-sm font-semibold leading-6 text-gray-900 mt-2">
-                            Price {medicine.price}Tk
-                        </p>
-
-                        {/* Add to Cart button */}
+                    <div className="flex items-center justify-between mt-4">
+                        <div className="text-gray-900 font-bold">
+                            ৳{medicine.price}
+                            <span className="text-xs text-gray-500 font-normal ml-1">/ unit</span>
+                        </div>
+                        
                         {medicine?.quantity > 0 && (
                             <button
-                                className="text-sm h-8 border rounded-lg p-1 text-white"
-                                style={{ backgroundColor: "red", border: '1px solid red' }}
                                 onClick={() => handleCart(medicine)}
+                                className="flex items-center gap-1 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-200 transform hover:-translate-y-0.5"
                             >
-                                Add to Cart
+                                <Plus className="w-4 h-4" />
+                                Add
                             </button>
                         )}
                     </div>
@@ -66,7 +81,7 @@ const Medicines = ({ medicine }) => {
 };
 
 Medicines.propTypes = {
-    medicine: PropTypes.object.isRequired, // Updated to object instead of string for the medicine prop
+    medicine: PropTypes.object.isRequired
 };
 
 export default Medicines;
