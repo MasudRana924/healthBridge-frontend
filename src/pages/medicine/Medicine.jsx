@@ -20,10 +20,10 @@ const Medicine = () => {
         content = (
             <div className="w-full  md:mt-16  flex flex-col items-center justify-center py-12 px-4">
             <div className="bg-gray-50 rounded-full p-6 mb-6">
-                <Search className="w-16 h-16 text-red-500" />
+                <Search className="w-16 h-16 text-blue-500" />
             </div>
 
-            <h3 className="text-xl font-semibold text-red-500 mb-2">
+            <h3 className="text-xl font-semibold text-blue-500 mb-2">
                 No Medicine Found
             </h3>
 

@@ -12,7 +12,7 @@ const Nurse = ({nurse}) => {
                 <div className="relative">
                     {/* Wishlist Button */}
                     <button className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-md hover:scale-110 transition-transform duration-200 z-10">
-                        <Heart className="w-4 h-4 text-gray-500 hover:text-red-500 transition-colors" />
+                        <Heart className="w-4 h-4 text-gray-500 hover:text-blue-500 transition-colors" />
                     </button>
 
                     {/* Experience Badge */}

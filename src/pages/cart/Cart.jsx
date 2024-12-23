@@ -89,7 +89,7 @@ const Cart = () => {
                 ) : (
                     <div className="w-full mb-20 text-center">
                         <img src={cartImg} alt="" className="w-3/4 lg:w-1/4 mx-auto h-48" />
-                        <p className="mt-10 text-red-500 font-bold mb-10">Your Cart is Currently Empty</p>
+                        <p className="mt-10 text-blue-500 font-bold mb-10">Your Cart is Currently Empty</p>
                         <Link to="/medicine/store">
                             <Button color="secondary"
                                 variant="contained" className="mt-10">

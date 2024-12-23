@@ -191,7 +191,7 @@ const Shipping = () => {
 
                     </div> : <div className="w-ful mb-20">
                         <img src={cartImg} alt="" className="w-3/4 lg:w-1/4 mx-auto h-52" />
-                        <p className="mt-10 text-red-500 font-bold">Your Cart is Currently Empty</p>
+                        <p className="mt-10 text-blue-500 font-bold">Your Cart is Currently Empty</p>
                     </div>
                 }
                 <ToastContainer

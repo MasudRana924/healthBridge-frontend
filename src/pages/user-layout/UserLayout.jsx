@@ -43,7 +43,7 @@ const UserLayout = () => {
                             </li>
                         ))}
                     </ul>
-                    <button  onClick={() => dispatch(logout())} className='mt-4 w-full bg-red-500 h-10 border rounded-lg text-white'>Logout</button>
+                    <button  onClick={() => dispatch(logout())} className='mt-4 w-full bg-blue-500 h-10 border rounded-lg text-white'>Logout</button>
                 </div>
 
                 {/* Right Content Area */}

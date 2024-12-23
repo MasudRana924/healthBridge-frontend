@@ -15,7 +15,7 @@ const Medicines = ({ medicine }) => {
     };
 
     return (
-        <div className="col-span-6 sm:col-span-6 md:col-span-4 lg:col-span-4">
+        <div className="col-span-12 sm:col-span-12 md:col-span-4 lg:col-span-4 mt-4">
             <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group">
                 <div className="relative">
                     {/* Discount Badge */}
@@ -25,7 +25,7 @@ const Medicines = ({ medicine }) => {
                     
                     {/* Wishlist Button */}
                     <button className="absolute top-3 right-3 bg-white p-2 rounded-full shadow-md hover:scale-110 transition-transform duration-200 z-20">
-                        <Heart className="w-4 h-4 text-gray-500 hover:text-red-500 transition-colors" />
+                        <Heart className="w-4 h-4 text-gray-500 hover:text-blue-500 transition-colors" />
                     </button>
                     
                     {/* Image Container */}
@@ -67,7 +67,7 @@ const Medicines = ({ medicine }) => {
                         {medicine?.quantity > 0 && (
                             <button
                                 onClick={() => handleCart(medicine)}
-                                className="flex items-center gap-1 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-200 transform hover:-translate-y-0.5"
+                                className="flex items-center gap-1 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-all duration-200 transform hover:-translate-y-0.5"
                             >
                                 <Plus className="w-4 h-4" />
                                 Add

@@ -131,7 +131,7 @@ const SingleDoctor = () => {
         </div>
 
         {/* Error Handling */}
-        {isError && <p className="text-red-500">{error}</p>}
+        {isError && <p className="text-blue-500">{error}</p>}
 
         {/* <div className="mt-4 mb-8">
           <div className="w-full  mx-auto border p-4">

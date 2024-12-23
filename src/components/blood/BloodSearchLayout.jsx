@@ -23,7 +23,7 @@ let isSelected ;
         className={`
           relative w-full transition-all duration-300 ease-in-out
           transform hover:scale-105 hover:shadow-lg
-          ${isSelected ? 'bg-red-50 border-2 border-red-500' : 'bg-white border border-gray-200'}
+          ${isSelected ? 'bg-red-50 border-2 border-blue-500' : 'bg-white border border-gray-200'}
           flex flex-col items-center gap-1.5
           p-2 sm:p-3
           rounded-lg
@@ -37,15 +37,15 @@ let isSelected ;
           flex items-center justify-center
           transition-all duration-300
           ${isSelected ? 'bg-red-100' : 'bg-red-50'}
-          ${isSelected ? 'ring-2 ring-red-500 ring-offset-2' : 'ring-1 ring-red-100'}
-          group-hover:ring-red-500
+          ${isSelected ? 'ring-2 ring-blue-500 ring-offset-2' : 'ring-1 ring-red-100'}
+          group-hover:ring-blue-500
         `}>
           <Droplets 
             className={`
               w-5 h-5 sm:w-6 sm:h-6
               transition-colors duration-300
-              ${isSelected ? 'text-red-500' : 'text-red-400'}
-              group-hover:text-red-500
+              ${isSelected ? 'text-blue-500' : 'text-red-400'}
+              group-hover:text-blue-500
             `}
           />
         </div>
@@ -53,15 +53,15 @@ let isSelected ;
         {/* Blood Group Text */}
         <span className={`
           font-semibold text-sm sm:text-base transition-colors duration-300
-          ${isSelected ? 'text-red-500' : 'text-gray-700'}
-          group-hover:text-red-500
+          ${isSelected ? 'text-blue-500' : 'text-gray-700'}
+          group-hover:text-blue-500
         `}>
           {bloodGroup}
         </span>
 
         {/* Emergency Tag */}
         {isEmergency && (
-          <div className="absolute -top-1.5 -left-1.5 bg-red-500 text-white 
+          <div className="absolute -top-1.5 -left-1.5 bg-blue-500 text-white 
                          px-1.5 py-0.5 rounded-md text-xs font-medium
                          flex items-center gap-1 shadow-md">
             <Clock className="w-2.5 h-2.5" />
@@ -73,7 +73,7 @@ let isSelected ;
         {isSelected && (
           <div className="absolute -top-1 -right-1 
                          w-4 h-4 sm:w-5 sm:h-5
-                         bg-red-500 rounded-full 
+                         bg-blue-500 rounded-full 
                          flex items-center justify-center shadow-md">
             <span className="text-white text-[10px] sm:text-xs">✓</span>
           </div>
@@ -99,7 +99,7 @@ const BloodGroupSelector = () => {
     <div className="w-11/12 md:w-3/4 lg:w-3/4 xl:w-7/12 2xl:w-6/12 mx-auto border border-white shadow-md bg-white rounded-md lg:h-84 p-6">
       {/* Header Section */}
       <div className="flex items-center gap-2">
-        <AlertCircle className="text-red-500 w-5 h-5" />
+        <AlertCircle className="text-blue-500 w-5 h-5" />
         <h2 className="text-lg font-bold text-gray-800">Blood Groups Available</h2>
       </div>
 
